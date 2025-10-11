@@ -14,7 +14,7 @@ const { t } = useI18n();
 .cta-section {
 
   background-color: #CDAC77;
-//Kiwi
+/*Kiwi*/
 }
 .cta-section h2 {  font-size: 2.5rem; color: #2C1810; margin-bottom: 0.5rem; }
 .cta-section p {  font-size: 1.8rem; color: #4a2c1d; margin-top: 0; margin-bottom: 0; }
