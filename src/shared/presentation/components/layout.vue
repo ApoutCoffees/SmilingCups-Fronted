@@ -1,164 +1,117 @@
-<script setup xmlns="http://www.w3.org/1999/html">
+<script setup>
 import LanguageSwitcher from "./language-switcher.vue";
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 import FooterContent from "./footer-content.vue";
 const { t } = useI18n();
 
-const drawer = ref(false);
-const toggleDrawer = () => {
-  drawer.value = !drawer.value;
-};
 const items = [
   { label: "option.about", to: "/home" },
-  { label: "option.catalog", to: "/about" },
-  { label: "option.goals", to: "/publishing/categories" },
-  { label: "option.contact", to: "/publishing/tutorials" },
+  { label: "option.catalog", to: "/catalog" },
+  { label: "option.goals", to: "/goals" },
+  { label: "option.contact", to: "/contact" },
 ];
 </script>
 
 <template>
-  <pv-toast />
-  <pv-confirm-dialog />
-  <div class="header">
-    <pv-toolbar class="bg-primary">
+  <div class="page-container">
+    <pv-toast />
+    <pv-confirm-dialog />
 
-      <!-- Lado izquierdo -->
-      <template #start>
-        <img
-            src="../../../assets/Icon.png"
-            alt="El logo de mi increíble compañía"
-            width="60"
-            height="60"
-        />
-
-        <p style="text-indent: 10px;">SMILING CUPS</p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        <div class="flex justify-content-end mr-3">
-          <pv-button
-              v-for="item in items"
-              :key="item.label"
-              as-child
-              v-slot="slotProps"
-          >
-            <router-link
-                :to="item.to"
-                :class="slotProps['class']"
+    <header class="header">
+      <pv-toolbar class="bg-primary">
+        <template #start>
+          <img
+              src="../../../assets/Icon.png"
+              alt="El logo de mi increíble compañía"
+              width="60"
+              height="60"
+          />
+          <p class="brand-text">SMILING CUPS</p>
+          <div class="navigation-links">
+            <pv-button
+                v-for="item in items"
+                :key="item.label"
+                as-child
+                v-slot="slotProps"
             >
-              {{ t(item.label) }}
-            </router-link>
-          </pv-button>
-        </div>
-      </template>
-      <template #center>
+              <router-link :to="item.to" :class="slotProps['class']">
+                {{ t(item.label) }}
+              </router-link>
+            </pv-button>
+          </div>
+        </template>
 
-      </template>
-      <!-- Lado derecho -->
-      <template #end>
-        <language-switcher />
-      </template>
+        <template #end>
+          <language-switcher />
+        </template>
+      </pv-toolbar>
+    </header>
 
-    </pv-toolbar>
-  </div>
+    <main class="main-content">
+      <router-view />
+    </main>
 
-  <div class="main-content">
-    <router-view />
-  </div>
-
-  <div class="footer">
-    <footer-content />
+    <footer class="footer">
+      <footer-content />
+    </footer>
   </div>
 </template>
 
-
 <style scoped>
-.header {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
+.header {
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+
+  width: 100%;
+  background-color: #2C1810;
+  color: #ffffff;
 }
 
 .header :deep(.p-toolbar) {
   background-color: #cdac77 !important;
   color: #ffffff !important;
-
 }
 
-.header :deep(h3) {
-  color: #1e1e1e;
-  margin-left: 10px;
-  display: inline-flex;
-  align-items: center;
+.brand-text {
+  font-family: 'Amaranth', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #2C1810;
+  margin: 0 2rem 0 10px;
+}
 
+.navigation-links {
+  display: flex;
+  gap: 1rem;
 }
 
 .header :deep(.p-button) {
   color: #1e1e1e !important;
   background-color: transparent !important;
   border: none !important;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-family: 'Amaranth', sans-serif;
 }
 
 .header :deep(.p-button:hover) {
   background-color: #2c1810 !important;
   color: #ffffff !important;
+  border-radius: 8px;
 }
-
-.header :deep(.p-button.p-button-text .pi) {
-  color: #ffffff !important;
-
-}
-
-/* Added: toolbar layout control (left + right) */
-.toolbar-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-/* Added: left side for logo + text + buttons */
-.left-section {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* Added: right side for language switcher */
-.right-section {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-/* Added: brand text styling */
-.brand-text {
-  color: #1e1e1e !important;
-  font-weight: bold;
-
-  text-indent: 10px;
-}
-
-.main-content {
-  margin-top: 60px;
-  width: 100%; /* <-- La clave es darle el 100% de ancho */
-  display: flex;
-  justify-content: center;
-}
-
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px;
-  background-color: #cdac77;
-  color: #ffffff;
-}
-
-
 </style>

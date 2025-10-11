@@ -6,11 +6,6 @@
  */
 import {defineStore} from "pinia";
 import {computed, ref} from "vue";
-import {PublishingApi} from "../infrastructure/publishing-api.js";
-import {CategoryAssembler} from "../infrastructure/category.assembler.js";
-import {TutorialAssembler} from "../infrastructure/tutorial.assembler.js";
-import {Category} from "../domain/model/category.entity.js";
-import {Tutorial} from "../domain/model/tutorial.entity.js";
 
 const publishingApi = new PublishingApi();
 

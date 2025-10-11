@@ -1,7 +1,7 @@
 // Lazy-loaded components
 const categoryList = () => import('./views/category-list.vue');
-const categoryForm = () => import('./views/category-form.vue');
-const tutorialList = () => import('./views/tutorial-list.vue');
+const categoryForm = () => import('./views/goals.vue');
+const tutorialList = () => import('./views/Contact.vue');
 const tutorialForm = () => import('./views/tutorial-form.vue');
 
 const publishingRoutes = [
