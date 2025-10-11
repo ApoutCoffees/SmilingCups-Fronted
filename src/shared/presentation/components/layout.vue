@@ -47,19 +47,54 @@ const items = [
   <div class="footer">
     <footer-content/>
   </div>
+
+
 </template>
 
 <style scoped>
 .header {
   position: absolute;
   left: 0;
-  top:0;
-  width:100%;
+  top: 0;
+  width: 100%;
 }
 
+
+.header :deep(.p-toolbar) {
+  background-color: #D32F2F !important;
+  border-color: #B71C1C !important;
+  color: #ffffff !important;
+}
+
+
+.header :deep(h3) {
+  color: #ffffff;
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+
+.header :deep(.p-button) {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.header :deep(.p-button:hover) {
+  background-color: #B71C1C !important;
+}
+
+
+.header :deep(.p-button.p-button-text .pi) {
+  color: #ffffff !important;
+}
+
+/* Contenido principal */
 .main-content {
   margin-top: 60px;
 }
+
 
 .footer {
   position: absolute;
@@ -67,5 +102,7 @@ const items = [
   left: 0;
   width: 100%;
   padding: 10px;
+  background-color: #D32F2F;
+  color: #ffffff;
 }
 </style>

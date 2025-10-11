@@ -20,5 +20,23 @@
 </template>
 
 <style scoped>
+.grid {
+  background-color: #D32F2F !important;
+  color: #ffffff !important;
+  border-top: 2px solid #B71C1C;
+  text-align: center;
+}
 
+a {
+  color: #fff176; /* amarillo suave para destacar el enlace */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.pi-heart {
+  color: #fff176;
+}
 </style>
