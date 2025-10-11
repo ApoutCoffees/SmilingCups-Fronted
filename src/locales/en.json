@@ -1,0 +1,123 @@
+{
+  "option": {
+    "about": "About",
+    "catalog": "Catalog",
+    "goals": "Goals",
+    "contact": "Contact"
+  },
+  "authoring-phrase": {
+    "intro": "© 2025 SmilingCups. All rights reserved. Privacy Policy Terms of Service",
+    "use": "Connecting coffee lovers with exceptional producers around the world.",
+    "author": "Made with ☕ by {brand} Developer Team"
+  },
+  "footer": {
+    "brand": {
+      "description": "Connecting coffee lovers with exceptional producers around the world."
+    },
+    "quick-links": {
+      "title": "Quick Links",
+      "about": "About Us",
+      "producers": "Goals",
+      "subscription-plans": "Our Producer",
+      "blog": "Blog"
+    },
+    "support": {
+      "title": "Support",
+      "help-center": "Contact",
+      "shipping-info": "profile",
+      "faq": "FAQ"
+    },
+    "contact": {
+      "title": "Contact",
+      "email": "example@smilingcups.com",
+      "phone": "+51 999 999 999",
+      "address": "123 Confucio, Surco"
+    }
+  },
+  "home": {
+    "title": "Exceptional coffee sourced directly from passionate producers",
+    "content": "Discover unique flavors every month while directly supporting small coffee producers around the world.",
+    "browse_button": "Browse catalog",
+    "plans_button": "view plans",
+    "why_us": {
+      "title": "Why SmilingCups?",
+      "subtitle": "More than just a coffee subscription, an experience that connects people",
+      "quality_title": "Premium Quality",
+      "quality_desc": "Each bean is carefully selected by expert tasters.",
+      "impact_title": "Direct Impact",
+      "impact_desc": "Your purchase directly supports small producers and their families.",
+      "origins_title": "Unique Origins",
+      "origins_desc": "Explore flavors from over 30 different countries every month"
+    },
+    "plans": {
+      "title": "Subscription Plans",
+      "subtitle": "Choose the perfect plan for your passion for coffee",
+      "most_popular": "Most Popular",
+      "subscribe_now": "Subscribe now",
+      "basic": {
+        "title": "Basic",
+        "price": "14.99$/ MONTH",
+        "features": [
+          "250g of premium coffee per month",
+          "Selection of 2-3 rotating sources",
+          "Access to the community",
+          "Free shipping"
+        ]
+      },
+      "premium": {
+        "title": "Premium",
+        "price": "39.99$/ MONTH",
+        "features": [
+          "500g of premium coffee per month",
+          "Selection of 4-5 rotating sources",
+          "Three-monthly surprise box",
+          "Discounts on additional purchases",
+          "Priority access to limited lots",
+          "Free shipping"
+        ]
+      },
+      "vip": {
+        "title": "VIP",
+        "price": "59.99$/ MONTH",
+        "features": [
+          "1300g of premium coffee per month",
+          "Exclusive micro-lots",
+          "Monthly surprise box",
+          "Video call with producers",
+          "20% discount on all purchases",
+          "VIP access to events",
+          "Free international express shipping"
+        ]
+      }
+    },
+    "testimonials": {
+      "title": "What our customers say",
+      "subtitle": "Thousands of coffee lovers enjoy SmilingCups every day.",
+      "customer1_quote": "\"The most incredible coffee I've ever tasted. Every month is a new adventure in flavors.\"",
+      "customer1_name": "Maria Gonzalez",
+      "customer1_level": "Cliente Premium",
+      "customer2_quote": "\"Knowing that I am directly supporting producers makes every cup special.\"",
+      "customer2_name": "Carlos Rodriguez",
+      "customer2_level": "Cliente Premium",
+      "customer3_quote": "\"La calidad es excepcional y el servicio al cliente es inmejorable. Totalmente recomendado.\"",
+      "customer3_name": "Ana Martínez",
+      "customer3_level": "Cliente Premium"
+    },
+    "cta": {
+      "title": "Ready to begin your coffee adventure?",
+      "subtitle": "Join our community and discover the best coffee in the world"
+    }
+  },
+  "page-not-found": {
+    "title": "Page Not Found",
+    "content": "The path {unavailable-route} is not available.",
+    "go-home": "Go Home"
+  },
+  "catalog": {
+    "title": "Our Catalog",
+    "subtitle": "Discover our special selection of coffees from around the world.",
+    "loading_message": "Loading coffees... ☕",
+    "error_message": "Could not load the catalog. Please try again later.",
+    "notes_label": "Notes:"
+  }
+}

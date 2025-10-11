@@ -1,0 +1,44 @@
+{
+  "cafes": [
+    {
+      "id": 1,
+      "nombre": "Amanecer Andino",
+      "tipo": "Caturra",
+      "notas": ["Chocolate con leche", "Naranja", "Caramelo"],
+      "productor": "Familia Quispe",
+      "lugar": "Cusco, Perú",
+      "descripcion": "Un café de altura cultivado a más de 1800 msnm. Su proceso de lavado resalta notas cítricas y un dulzor a caramelo, perfecto para empezar el día.",
+      "imagenUrl": "https://images.unsplash.com/photo-1559496417-e9f6c0a75162"
+    },
+    {
+      "id": 2,
+      "nombre": "Finca La Esmeralda",
+      "tipo": "Geisha",
+      "notas": ["Jazmín", "Bergamota", "Frutos rojos"],
+      "productor": "Hacienda La Esmeralda",
+      "lugar": "Boquete, Panamá",
+      "descripcion": "Reconocido mundialmente por su perfil exótico y floral. Este café Geisha es una experiencia sensorial única, con una acidez brillante y un cuerpo delicado.",
+      "imagenUrl": "https://images.unsplash.com/photo-1611162458324-aae1eb4129aa"
+    },
+    {
+      "id": 3,
+      "nombre": "Yirgacheffe Místico",
+      "tipo": "Heirloom",
+      "notas": ["Limón", "Té negro", "Durazno"],
+      "productor": "Cooperativa YCFCU",
+      "lugar": "Yirgacheffe, Etiopía",
+      "descripcion": "Proveniente de la cuna del café, este lote de proceso natural ofrece un perfil de sabor complejo y vibrante, con notas afrutadas y florales muy distintivas.",
+      "imagenUrl": "https://images.unsplash.com/photo-1599819121899-e61405fb7a98"
+    },
+    {
+      "id": 4,
+      "nombre": "Sumatra Mandheling",
+      "tipo": "Typica",
+      "notas": ["Tierra húmeda", "Cedro", "Chocolate amargo"],
+      "productor": "Pequeños productores de Gayo",
+      "lugar": "Sumatra, Indonesia",
+      "descripcion": "Un café con cuerpo intenso y baja acidez, característico de su proceso 'Giling Basah'. Presenta notas terrosas y achocolatadas, ideal para los amantes de los sabores profundos.",
+      "imagenUrl": "https://images.unsplash.com/photo-1511920183333-6b3c745778a8"
+    }
+  ]
+}

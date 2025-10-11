@@ -1,0 +1,123 @@
+{
+  "option": {
+    "about": "Nosotros",
+    "catalog": "Catálogo",
+    "goals": "Metas",
+    "contact": "Contacto"
+  },
+  "authoring-phrase": {
+    "intro": "© 2025 SmilingCups. Todos los derechos reservados. Política de Privacidad Términos de Servicio",
+    "use": "Conectando a los amantes del café con productores excepcionales de todo el mundo.",
+    "author": "Hecho con ☕ por el Equipo de Desarrolladores de {brand}"
+  },
+  "footer": {
+    "brand": {
+      "description": "Conectando a los amantes del café con productores excepcionales de todo el mundo."
+    },
+    "quick-links": {
+      "title": "Enlaces Rápidos",
+      "about": "Sobre Nosotros",
+      "producers": "Metas",
+      "subscription-plans": "Nuestros Productores",
+      "blog": "Blog"
+    },
+    "support": {
+      "title": "Soporte",
+      "help-center": "Contacto",
+      "shipping-info": "Perfil",
+      "faq": "Preguntas Frecuentes"
+    },
+    "contact": {
+      "title": "Contacto",
+      "email": "ejemplo@smilingcups.com",
+      "phone": "+51 999 999 999",
+      "address": "123 Confucio, Surco"
+    }
+  },
+  "home": {
+    "title": "Café excepcional obtenido directamente de productores apasionados",
+    "content": "Descubre sabores únicos cada mes mientras apoyas directamente a pequeños productores de café de todo el mundo.",
+    "browse_button": "Ver catálogo",
+    "plans_button": "Ver planes",
+    "why_us": {
+      "title": "¿Por qué SmilingCups?",
+      "subtitle": "Más que una suscripción de café, una experiencia que conecta personas",
+      "quality_title": "Calidad Premium",
+      "quality_desc": "Cada grano es cuidadosamente seleccionado por catadores expertos.",
+      "impact_title": "Impacto Directo",
+      "impact_desc": "Tu compra apoya directamente a pequeños productores y sus familias.",
+      "origins_title": "Orígenes Únicos",
+      "origins_desc": "Explora sabores de más de 30 países diferentes cada mes."
+    },
+    "plans": {
+      "title": "Planes de Suscripción",
+      "subtitle": "Elige el plan perfecto para tu pasión por el café",
+      "most_popular": "Más Popular",
+      "subscribe_now": "Suscríbete ahora",
+      "basic": {
+        "title": "Básico",
+        "price": "14.99$ / MES",
+        "features": [
+          "250g de café premium por mes",
+          "Selección de 2-3 orígenes rotativos",
+          "Acceso a la comunidad",
+          "Envío gratis"
+        ]
+      },
+      "premium": {
+        "title": "Premium",
+        "price": "39.99$ / MES",
+        "features": [
+          "500g de café premium por mes",
+          "Selección de 4-5 orígenes rotativos",
+          "Caja sorpresa trimestral",
+          "Descuentos en compras adicionales",
+          "Acceso prioritario a lotes limitados",
+          "Envío gratis"
+        ]
+      },
+      "vip": {
+        "title": "VIP",
+        "price": "59.99$ / MES",
+        "features": [
+          "1300g de café premium por mes",
+          "Micro-lotes exclusivos",
+          "Caja sorpresa mensual",
+          "Videollamada con productores",
+          "20% de descuento en todas las compras",
+          "Acceso VIP a eventos",
+          "Envío express internacional gratis"
+        ]
+      }
+    },
+    "testimonials": {
+      "title": "Lo que dicen nuestros clientes",
+      "subtitle": "Miles de amantes del café disfrutan de SmilingCups todos los días.",
+      "customer1_quote": "\"El café más increíble que he probado. Cada mes es una nueva aventura de sabores.\"",
+      "customer1_name": "Maria Gonzalez",
+      "customer1_level": "Cliente Premium",
+      "customer2_quote": "\"Saber que estoy apoyando directamente a los productores hace que cada taza sea especial.\"",
+      "customer2_name": "Carlos Rodriguez",
+      "customer2_level": "Cliente Premium",
+      "customer3_quote": "\"La calidad es excepcional y el servicio al cliente es inmejorable. Totalmente recomendado.\"",
+      "customer3_name": "Ana Martínez",
+      "customer3_level": "Cliente Premium"
+    },
+    "cta": {
+      "title": "¿Listo para comenzar tu aventura cafetera?",
+      "subtitle": "Únete a nuestra comunidad y descubre el mejor café del mundo."
+    }
+  },
+  "page-not-found": {
+    "title": "Página No Encontrada",
+    "content": "La ruta {unavailable-route} no está disponible.",
+    "go-home": "Ir al Inicio"
+  },
+  "catalog": {
+    "title": "Nuestro Catálogo",
+    "subtitle": "Descubre nuestra selección especial de cafés del mundo.",
+    "loading_message": "Cargando cafés... ☕",
+    "error_message": "No se pudo cargar el catálogo. Inténtalo de nuevo más tarde.",
+    "notes_label": "Notas:"
+  }
+}
