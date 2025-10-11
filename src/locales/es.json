@@ -1,9 +1,9 @@
 {
   "option": {
-    "home": "Inicio",
-    "about": "Acerca de",
-    "categories": "Categorías",
-    "tutorials": "Tutoriales"
+    "about": "Quienes somos",
+    "catalog": "Catalogo",
+    "goals": "Metas",
+    "contact": "Contacto"
   },
   "authoring-phrase": {
     "intro": "Hecho con",

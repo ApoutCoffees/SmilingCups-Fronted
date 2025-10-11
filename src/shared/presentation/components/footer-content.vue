@@ -21,9 +21,9 @@
 
 <style scoped>
 .grid {
-  background-color: #D32F2F !important;
+  background-color: #cdac77 !important;
   color: #ffffff !important;
-  border-top: 2px solid #B71C1C;
+  border-top: 2px solid #cdac77;
   text-align: center;
 }
 
