@@ -28,7 +28,7 @@ const { t } = useI18n();
     <div class="hero-image-container">
       <img
           class="coffee-beans-img"
-          src="https://i.imgur.com/L4Dqj2u.png"
+          src="../../../assets/AppoutCoffees.png"
           alt="Granos de café tostados"
       />
       <div class="organic-badge">
@@ -67,10 +67,10 @@ const { t } = useI18n();
 }
 
 .logo-text {
-  font-family: 'Amaranth', sans-serif;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: #2C1810;
+
 }
 
 h1 {

@@ -22,7 +22,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     console.log(`Navigating from ${from.name} to ${to.name}`);
     // Set the page title
-    let baseTitle = 'ACME Learning Center';
+    let baseTitle = 'Smiling Cups';
     document.title = `${baseTitle} - ${to.meta['title']}`;
     // TODO: Call authentication guard
     next();

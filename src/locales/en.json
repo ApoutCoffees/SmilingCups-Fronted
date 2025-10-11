@@ -8,17 +8,17 @@
 
   },
   "authoring-phrase": {
-    "intro": "Made with",
-    "use": "using",
+    "intro": "© 2025 SmilingCups. All rights reserved.  Privacy Policy  Terms of Service",
+    "use": "conect with the coffee around the flavour.",
     "author": "by {brand} Developer Team"
   },
   "about": {
     "title": "About Us",
-    "content": "ACME Learning Center is an Education Business Platform, part of ACME Corporation."
+    "content": "Hola"
   },
   "home": {
-    "title": "Welcome",
-    "content": "Welcome to ACME Learning Center."
+    "title": "Exceptional coffee sourced directly from passionate producers",
+    "content": "Discover unique flavors every month while directly supporting small coffee producers around the world."
   },
   "page-not-found": {
     "title": "Page Not Found",
