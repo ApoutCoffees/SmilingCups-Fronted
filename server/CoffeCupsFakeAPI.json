@@ -4,41 +4,179 @@
       "id": 1,
       "nombre": "Amanecer Andino",
       "tipo": "Caturra",
-      "notas": ["Chocolate con leche", "Naranja", "Caramelo"],
+      "notas": ["Chocolatey", "Fruity", "Caramel"],
       "productor": "Familia Quispe",
       "lugar": "Cusco, Perú",
+      "origen_key": "country_peru",
       "descripcion": "Un café de altura cultivado a más de 1800 msnm. Su proceso de lavado resalta notas cítricas y un dulzor a caramelo, perfecto para empezar el día.",
-      "imagenUrl": "https://images.unsplash.com/photo-1559496417-e9f6c0a75162"
+      "imagenUrl": "https://images.unsplash.com/photo-1559496417-e9f6c0a75162?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "precio": 25.00,
+      "tostado": "Medium",
+      "minSubscription": "basic",
+      "contact": { "phone": "+51 987 654 321", "website": "https://familiasquispe.example.com" }
     },
     {
       "id": 2,
       "nombre": "Finca La Esmeralda",
       "tipo": "Geisha",
-      "notas": ["Jazmín", "Bergamota", "Frutos rojos"],
+      "notas": ["Floral", "Fruity", "Citrus"],
       "productor": "Hacienda La Esmeralda",
       "lugar": "Boquete, Panamá",
+      "origen_key": "country_panama",
       "descripcion": "Reconocido mundialmente por su perfil exótico y floral. Este café Geisha es una experiencia sensorial única, con una acidez brillante y un cuerpo delicado.",
-      "imagenUrl": "https://images.unsplash.com/photo-1611162458324-aae1eb4129aa"
+      "imagenUrl": "https://images.unsplash.com/photo-1611162458324-aae1eb4129aa?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "precio": 45.00,
+      "tostado": "Light",
+      "minSubscription": "premium",
+      "contact": { "website": "https://haciendaesmeralda.example.com" }
     },
     {
       "id": 3,
       "nombre": "Yirgacheffe Místico",
       "tipo": "Heirloom",
-      "notas": ["Limón", "Té negro", "Durazno"],
+      "notas": ["Fruity", "Floral", "Tea-like"],
       "productor": "Cooperativa YCFCU",
       "lugar": "Yirgacheffe, Etiopía",
+      "origen_key": "country_ethiopia",
       "descripcion": "Proveniente de la cuna del café, este lote de proceso natural ofrece un perfil de sabor complejo y vibrante, con notas afrutadas y florales muy distintivas.",
-      "imagenUrl": "https://images.unsplash.com/photo-1599819121899-e61405fb7a98"
+      "imagenUrl": "https://images.unsplash.com/photo-1599819121899-e61405fb7a98?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "precio": 30.00,
+      "tostado": "Light",
+      "minSubscription": "basic",
+      "contact": null
     },
     {
       "id": 4,
       "nombre": "Sumatra Mandheling",
       "tipo": "Typica",
-      "notas": ["Tierra húmeda", "Cedro", "Chocolate amargo"],
+      "notas": ["Earthy", "Nutty", "Chocolatey"],
       "productor": "Pequeños productores de Gayo",
       "lugar": "Sumatra, Indonesia",
+      "origen_key": "country_indonesia",
       "descripcion": "Un café con cuerpo intenso y baja acidez, característico de su proceso 'Giling Basah'. Presenta notas terrosas y achocolatadas, ideal para los amantes de los sabores profundos.",
-      "imagenUrl": "https://images.unsplash.com/photo-1511920183333-6b3c745778a8"
+      "imagenUrl": "https://images.unsplash.com/photo-1511920183333-6b3c745778a8?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "precio": 28.00,
+      "tostado": "Dark",
+      "minSubscription": "basic",
+      "contact": { "phone":"+62 123 456 789" }
+    },
+    {
+      "id": 5,
+      "nombre": "Café de Nariño",
+      "tipo": "Castillo",
+      "notas": ["Chocolatey", "Caramel", "Citrus"],
+      "productor": "Asociación de Productores de Nariño",
+      "lugar": "Nariño, Colombia",
+      "origen_key": "country_colombia",
+      "descripcion": "Un café balanceado con dulzura, acidez brillante y notas a chocolate. Ideal para un espresso suave o métodos de filtrado.",
+      "imagenUrl": "https://images.unsplash.com/photo-1566904929286-905c102c77ec?auto=format&fit=crop&q=80&w=1935&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "precio": 22.50,
+      "tostado": "Medium",
+      "minSubscription": "basic",
+      "contact": null
+    },
+    {
+      "id": 6,
+      "nombre": "Monteverde",
+      "tipo": "Typica",
+      "notas": ["Fruity", "Sweet", "Winey"],
+      "productor": "Finca Monteverde",
+      "lugar": "Tarrazú, Costa Rica",
+      "origen_key": "country_costa_rica",
+      "descripcion": "Cultivado en las altas montañas de Costa Rica, este café se caracteriza por su acidez limpia y notas a frutas tropicales.",
+      "imagenUrl": "https://images.unsplash.com/photo-1509042239860-f550ce7103ab?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "precio": 26.00,
+      "tostado": "Medium",
+      "minSubscription": "premium",
+      "contact": { "website": "https://monteverde.example.cr" }
+    },
+    {
+      "id": 7,
+      "nombre": "Kenya AA",
+      "tipo": "SL28, SL34",
+      "notas": ["Fruity", "Winey", "Citrus"],
+      "productor": "Diversas Fincas",
+      "lugar": "Nyeri, Kenia",
+      "origen_key": "country_kenya",
+      "descripcion": "Clásico perfil keniata con acidez brillante similar al vino tinto y notas intensas a grosella negra y cítricos.",
+      "imagenUrl": "https://images.unsplash.com/photo-1580933075521-dc75d9d79678?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "precio": 32.00,
+      "tostado": "Medium",
+      "minSubscription": "premium",
+      "contact": null
+    },
+    {
+      "id": 8,
+      "nombre": "Brasil Cerrado",
+      "tipo": "Bourbon, Mundo Novo",
+      "notas": ["Nutty", "Chocolatey", "Caramel"],
+      "productor": "Fazenda Progresso",
+      "lugar": "Cerrado Mineiro, Brasil",
+      "origen_key": "country_brazil",
+      "descripcion": "Un café suave y de baja acidez con un cuerpo cremoso. Notas predominantes a nuez y chocolate, ideal para mezclas de espresso.",
+      "imagenUrl": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "precio": 20.00,
+      "tostado": "Medium",
+      "minSubscription": "basic",
+      "contact": { "website": "https://fazendaprogresso.example.br" }
+    },
+    {
+      "id": 9,
+      "nombre": "Antigua Guatemala",
+      "tipo": "Bourbon, Caturra",
+      "notas": ["Chocolatey", "Spicy", "Smoky"],
+      "productor": "Finca Bella Vista",
+      "lugar": "Antigua, Guatemala",
+      "origen_key": "country_guatemala",
+      "descripcion": "Café complejo con cuerpo completo, notas a chocolate oscuro, especias y un ligero toque ahumado característico de la región.",
+      "imagenUrl": "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "precio": 27.50,
+      "tostado": "Medium",
+      "minSubscription": "basic",
+      "contact": null
+    },
+    {
+      "id": 10,
+      "nombre": "Blue Mountain",
+      "tipo": "Typica",
+      "notas": ["Nutty", "Floral", "Mild"],
+      "productor": "Wallenford Estate",
+      "lugar": "Blue Mountains, Jamaica",
+      "origen_key": "country_jamaica",
+      "descripcion": "Famoso por su suavidad excepcional y falta de amargor. Perfil delicado con notas a nuez y un toque floral.",
+      "imagenUrl": "https://images.unsplash.com/photo-1606791402928-19b0d635c05c?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "precio": 60.00,
+      "tostado": "Light",
+      "minSubscription": "vip",
+      "contact": null
     }
-  ]
+  ],
+  "users": [
+    { "id": 1, "fullName": "Kiwi GamingS", "email": "kiwi.gaming@example.com", "password": "123", "phone": "+51 999 888 777", "address": "Av. Siempre Viva 123", "city": "Lima", "country": "Perú", "isVerified": true, "subscription": { "status": "active", "plan": "basic" }, "type": "customer" },
+    { "id": 2, "fullName": "Ana Martínez", "email": "ana.martinez@example.com", "password": "123", "phone": "+34 666 555 444", "address": "Calle Falsa 456", "city": "Madrid", "country": "España", "isVerified": false, "subscription": { "status": "inactive", "plan": null }, "type": "customer" },
+    { "id": 3, "fullName": "Finca La Esperanza", "email": "productor@example.com", "password": "123", "phone": "+57 310 123 4567", "address": "Vereda El Placer", "city": "Pitalito", "country": "Colombia", "isVerified": true, "subscription": { "status": "active", "plan": "vip" }, "type": "producer", "companyName": "Cafés La Esperanza S.A.S" },
+    { "fullName": "Ohana", "email": "txt12710@gmail.com", "password": "12", "phone": "", "address": "", "city": "", "country": "", "isVerified": false, "subscription": { "status": "inactive", "plan": null }, "type": "producer", "companyName": "Ohana", "id": 4 },
+    { "fullName": "sas sas", "email": "jcpastor.na@gmail.com", "password": "12qwaszx", "phone": "", "address": "", "city": "", "country": "", "isVerified": false, "subscription": { "status": "inactive", "plan": null }, "type": "customer", "id": 5 }
+  ],
+  "orders": [
+    { "id": 1, "userId": 1, "orderNumber": "SC-SUB-001", "date": "2025-09-15", "planId": "basic", "total": 14.99, "status": "Completed", "type": "subscription_renewal" },
+    { "id": 2, "userId": 1, "orderNumber": "SC-SUB-002", "date": "2025-10-15", "planId": "basic", "total": 14.99, "status": "Completed", "type": "subscription_renewal" },
+    { "id": 3, "userId": 3, "orderNumber": "SC-SUB-003", "date": "2025-10-20", "planId": "vip", "total": 59.99, "status": "Completed", "type": "subscription_initial" }
+  ],
+  "favorites": [
+    { "id": 1, "userId": 1, "cafeId": 2 },
+    { "id": 2, "userId": 1, "cafeId": 3 }
+  ],
+  "producerStats": [
+    {
+      "userId": 3,
+      "totalSales": 15750.50,
+      "unitsSold": 630,
+      "topProduct": { "cafeId": 1, "nombre": "Amanecer Andino", "unitsSold": 210 },
+      "monthlySales": [
+        { "month": "Julio", "sales": 2100.00 }, { "month": "Agosto", "sales": 3550.50 }, { "month": "Septiembre", "sales": 4800.00 }, { "month": "Octubre", "sales": 5300.00 }
+      ]
+    }
+  ],
+  "subscriptionOrders": []
 }

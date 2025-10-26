@@ -6,40 +6,25 @@ import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
 import Material from '@primeuix/themes/material';
 import PrimeVue from 'primevue/config';
+import { useAuth } from './auth';
+
+import cart from './services/cart.js';
 import {
-    Button,
-    Card,
-    Checkbox,
-    Column,
-    ConfirmationService,
-    ConfirmDialog,
-    DataTable,
-    Dialog,
-    DialogService,
-    Drawer,
-    FileUpload,
-    FloatLabel,
-    IconField,
-    InputIcon,
-    InputNumber,
-    InputText,
-    Menu,
-    Rating,
-    Row,
-    Select,
-    SelectButton,
-    Tag,
-    Textarea,
-    Toast,
-    ToastService,
-    Toolbar,
-    Tooltip
+    Button, Card, Checkbox, Column, ConfirmationService, ConfirmDialog, DataTable,
+    Dialog, DialogService, Drawer, FileUpload, FloatLabel, IconField, InputIcon,
+    InputNumber, InputText, Menu, Rating, Row, Select, SelectButton, Tag, Textarea,
+    Toast, ToastService, Toolbar, Tooltip
 } from "primevue";
 import router from "./router.js";
 import pinia from "./pinia.js";
 
-// noinspection JSCheckFunctionSignatures
-createApp(App)
+const app = createApp(App);
+
+const auth = useAuth();
+auth.checkInitialAuthState();
+app.provide('auth', auth);
+app.provide('cart', cart);
+app
     .use(i18n)
     .use(PrimeVue, {theme: { preset: Material}, ripple: true})
     .use(ConfirmationService)
@@ -71,4 +56,4 @@ createApp(App)
     .directive('tooltip',           Tooltip)
     .use(router)
     .use(pinia)
-    .mount('#app')
+    .mount('#app');

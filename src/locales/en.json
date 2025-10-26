@@ -1,14 +1,30 @@
 {
   "option": {
-    "about": "About",
     "catalog": "Catalog",
+    "about": "About Us",
+    "subscriptions": "Subscriptions",
+    "my_profile": "My Profile",
+    "login_signup": "Login / Sign Up",
     "goals": "Goals",
     "contact": "Contact"
+  },
+  "header": {
+    "shop": "Shop",
+    "subscriptions": "Subscriptions",
+    "about": "About Us",
+    "welcome": "Welcome",
+    "my_profile": "My Profile",
+    "logout": "Logout",
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up"
+  },
+  "cart_icon": {
+    "title": "My Cart"
   },
   "authoring-phrase": {
     "intro": "© 2025 SmilingCups. All rights reserved. Privacy Policy Terms of Service",
     "use": "Connecting coffee lovers with exceptional producers around the world.",
-    "author": "Made with ☕ by {brand} Developer Team"
+    "author": "Made with ☕ by ApoutCoffee Developer Team"
   },
   "footer": {
     "brand": {
@@ -32,7 +48,18 @@
       "email": "example@smilingcups.com",
       "phone": "+51 999 999 999",
       "address": "123 Confucio, Surco"
-    }
+    },
+    "slogan": "Connecting coffee lovers with exceptional producers around the world.",
+    "links": {
+      "title": "Links",
+      "about": "About Us",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "blog": "Blog"
+    },
+    "copyright": "© 2025 SmilingCups. All rights reserved.",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service"
   },
   "home": {
     "title": "Exceptional coffee sourced directly from passionate producers",
@@ -54,54 +81,16 @@
       "subtitle": "Choose the perfect plan for your passion for coffee",
       "most_popular": "Most Popular",
       "subscribe_now": "Subscribe now",
-      "basic": {
-        "title": "Basic",
-        "price": "14.99$/ MONTH",
-        "features": [
-          "250g of premium coffee per month",
-          "Selection of 2-3 rotating sources",
-          "Access to the community",
-          "Free shipping"
-        ]
-      },
-      "premium": {
-        "title": "Premium",
-        "price": "39.99$/ MONTH",
-        "features": [
-          "500g of premium coffee per month",
-          "Selection of 4-5 rotating sources",
-          "Three-monthly surprise box",
-          "Discounts on additional purchases",
-          "Priority access to limited lots",
-          "Free shipping"
-        ]
-      },
-      "vip": {
-        "title": "VIP",
-        "price": "59.99$/ MONTH",
-        "features": [
-          "1300g of premium coffee per month",
-          "Exclusive micro-lots",
-          "Monthly surprise box",
-          "Video call with producers",
-          "20% discount on all purchases",
-          "VIP access to events",
-          "Free international express shipping"
-        ]
-      }
+      "basic": { "title": "Basic", "price": "14.99$/ MONTH", "features": [ "250g of premium coffee per month", "Selection of 2-3 rotating sources", "Access to the community", "Free shipping" ] },
+      "premium": { "title": "Premium", "price": "39.99$/ MONTH", "features": [ "500g of premium coffee per month", "Selection of 4-5 rotating sources", "Three-monthly surprise box", "Discounts on additional purchases", "Priority access to limited lots", "Free shipping" ] },
+      "vip": { "title": "VIP", "price": "59.99$/ MONTH", "features": [ "1300g of premium coffee per month", "Exclusive micro-lots", "Monthly surprise box", "Video call with producers", "20% discount on all purchases", "VIP access to events", "Free international express shipping" ] }
     },
     "testimonials": {
       "title": "What our customers say",
       "subtitle": "Thousands of coffee lovers enjoy SmilingCups every day.",
-      "customer1_quote": "\"The most incredible coffee I've ever tasted. Every month is a new adventure in flavors.\"",
-      "customer1_name": "Maria Gonzalez",
-      "customer1_level": "Cliente Premium",
-      "customer2_quote": "\"Knowing that I am directly supporting producers makes every cup special.\"",
-      "customer2_name": "Carlos Rodriguez",
-      "customer2_level": "Cliente Premium",
-      "customer3_quote": "\"La calidad es excepcional y el servicio al cliente es inmejorable. Totalmente recomendado.\"",
-      "customer3_name": "Ana Martínez",
-      "customer3_level": "Cliente Premium"
+      "customer1_quote": "\"The most incredible coffee I've ever tasted. Every month is a new adventure in flavors.\"", "customer1_name": "Maria Gonzalez", "customer1_level": "Premium Customer",
+      "customer2_quote": "\"Knowing that I am directly supporting producers makes every cup special.\"", "customer2_name": "Carlos Rodriguez", "customer2_level": "Premium Customer",
+      "customer3_quote": "\"The quality is exceptional and the customer service is unbeatable. Highly recommended.\"", "customer3_name": "Ana Martínez", "customer3_level": "Premium Customer"
     },
     "cta": {
       "title": "Ready to begin your coffee adventure?",
@@ -114,10 +103,245 @@
     "go-home": "Go Home"
   },
   "catalog": {
-    "title": "Our Catalog",
-    "subtitle": "Discover our special selection of coffees from around the world.",
+    "title": "Our Coffee Collection",
+    "subtitle": "Discover exceptional specialty coffee from independent producers.",
     "loading_message": "Loading coffees... ☕",
-    "error_message": "Could not load the catalog. Please try again later.",
-    "notes_label": "Notes:"
+    "error_message": "Failed to fetch products. Failed to execute 'json' on Response: Unexpected end of JSON input.",
+    "notes_label": "Notes:",
+    "search_placeholder": "Search coffees...",
+    "search_button": "Search",
+    "sort_by_label": "Sort by...",
+    "no_products_found": "No products found. Try adjusting your filters.",
+    "plan_filter_label": "Required Plan",
+    "plan_basic": "Basic",
+    "plan_premium": "Premium",
+    "plan_vip": "VIP",
+    "origin_label": "Origin",
+    "roast_profile_label": "Roast Profile",
+    "flavor_notes_label": "Flavor Notes",
+    "light_roast": "Light",
+    "medium_roast": "Medium",
+    "dark_roast": "Dark",
+    "fruity_note": "Fruity",
+    "floral_note": "Floral",
+    "nutty_note": "Nutty",
+    "chocolatey_note": "Chocolatey",
+    "spicy_note": "Spicy",
+    "caramel_note": "Caramel",
+    "earthy_note": "Earthy",
+    "citrus_note": "Citrus",
+    "tea_like_note": "Tea-like",
+    "winey_note": "Winey",
+    "sweet_note": "Sweet",
+    "smoky_note": "Smoky",
+    "mild_note": "Mild",
+    "country_ethiopia": "Ethiopia",
+    "country_colombia": "Colombia",
+    "country_kenya": "Kenya",
+    "country_brazil": "Brazil",
+    "country_costa_rica": "Costa Rica",
+    "country_peru": "Peru",
+    "country_panama": "Panama",
+    "country_indonesia": "Indonesia",
+    "country_guatemala": "Guatemala",
+    "country_jamaica": "Jamaica",
+    "min_subscription_label": "Minimum Subscription:",
+    "contact_label": "Contact:",
+    "view_subscriptions_button": "Subscribe with {planName}"
+  },
+  "product_detail": {
+    "add_to_cart": "Add to Cart",
+    "error_loading": "Failed to load product details.",
+    "loading": "Loading product...",
+    "not_found": "Product not found.",
+    "producer": "Producer",
+    "origin": "Origin",
+    "roast": "Roast",
+    "flavor_notes": "Flavor Notes"
+  },
+  "profile": {
+    "title": "My profile",
+    "sidebar": {
+      "subscriptions": "Subscriptions",
+      "rewards": "Rewards",
+      "payment_methods": "Payment Methods",
+      "configuration": "Configuration",
+      "orders": "Orders"
+    },
+    "membership_level": {
+      "basic": "Basic Member",
+      "premium": "Premium Member",
+      "vip": "VIP Member"
+    },
+    "current_subscription": {
+      "title": "Actual Subscription",
+      "billing": "MONTHLY BILLING",
+      "change_button": "Change subscription",
+      "pause_button": "Pause",
+      "cancel_button": "Cancel",
+      "status_active": "ACTIVE"
+    },
+    "next_delivery": {
+      "title": "Next Delivery",
+      "product_placeholder": "ETHIOPIAN YIRGACHEFFE"
+    },
+    "order_history": {
+      "title": "Order History:",
+      "status_delivered": "DELIVERED",
+      "see_details": "See details"
+    },
+    "dev_button_label": "Dev: Cycle Plan",
+    "loading": "Loading profile...",
+    "error": "Could not load profile.",
+    "not_logged_in": "Please log in to view your profile.",
+    "status": {
+      "title": "Account Status",
+      "verification_label": "Verification:",
+      "verified": "Verified",
+      "not_verified": "Not Verified",
+      "subscription_label": "Subscription:",
+      "plan_label": "Current Plan:",
+      "active": "Active",
+      "inactive": "Inactive",
+      "plan_basic": "Basic",
+      "plan_premium": "Premium",
+      "plan_vip": "VIP"
+    },
+    "personal_info": {
+      "title": "Personal Information",
+      "fullName": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "city": "City",
+      "country": "Country",
+      "save_button": "Save Changes"
+    }
+  },
+  "auth": {
+    "welcome": "Welcome!",
+    "prompt": "Choose how you want to join this community",
+    "coffee_lover": "Coffee Lover",
+    "coffee_lover_desc": "Explore unique flavors from the world and directly support producers.",
+    "producer": "Producer",
+    "producer_desc": "Connect directly with thousands of coffee lovers and sell your products.",
+    "customer_account": "Customer Account",
+    "producer_account": "Producer Account",
+    "log_in": "Log In",
+    "create_account": "Create Account",
+    "email_username": "Email/Username",
+    "password": "Password",
+    "remember_me": "Remember me",
+    "forgot_password": "Forgot your password?",
+    "no_account": "Don't have an account?",
+    "sign_up_now": "Sign up now",
+    "first_name": "Name",
+    "last_name": "Last Name",
+    "company_name": "Name of the producer",
+    "confirm_password": "Confirm Password",
+    "terms": "I accept the terms and conditions and privacy policy.",
+    "already_have_account": "Already have an account?",
+    "email": "Email"
+  },
+  "orders": {
+    "title": "My Orders",
+    "order_number": "Order #",
+    "date": "Date",
+    "status": "Status",
+    "total": "Total",
+    "no_orders": "You haven't placed any orders yet.",
+    "error_loading": "Failed to load orders."
+  },
+  "favorites": {
+    "title": "My Favorites",
+    "no_favorites": "You haven't saved any favorites yet."
+  },
+  "subscriptions": {
+    "title": "Subscription Plans"
+  },
+  "role_selection": {
+    "welcome": "Welcome!",
+    "prompt": "Choose how you want to join our community",
+    "coffee_lover_title": "Coffee Lover",
+    "coffee_lover_desc": "Discover exceptional coffees from around the world and directly support producers.",
+    "producer_title": "Producer",
+    "producer_desc": "Connect directly with thousands of coffee lovers and sell your premium products.",
+    "start": "Start"
+  },
+  "producer_dashboard": {
+    "title": "Producer Dashboard",
+    "total_sales": "Total Sales",
+    "units_sold": "Units Sold",
+    "top_product": "Top Selling Product",
+    "monthly_sales": "Monthly Sales",
+    "no_stats": "No statistics available for this producer.",
+    "error_loading": "Could not load statistics.",
+    "access_denied": "Access denied or user not logged in."
+  },
+  "about": {
+    "title": "About SmilingCups",
+    "subtitle": "Connecting coffee lovers with exceptional producers from around the world",
+    "mission_title": "Our Mission",
+    "mission_text": "At SmilingCups, we believe that great coffee starts with great relationships. We connect specialty coffee producers directly with enthusiasts who appreciate their craft.\n\nOur platform empowers small-scale producers to reach a global audience while ensuring coffee lovers get access to the freshest, most authentic specialty coffees available.",
+    "values_title": "Our Values",
+    "value_quality_title": "Quality",
+    "value_quality_text": "We only work with producers who share our commitment to excellence and sustainable practices.",
+    "value_transparency_title": "Transparency",
+    "value_transparency_text": "Know exactly where your coffee comes from and how it's produced, from farm to cup.",
+    "value_sustainability_title": "Sustainability",
+    "value_sustainability_text": "Supporting ethical practices and environmental stewardship in coffee production worldwide.",
+    "community_title": "Join Our Community",
+    "community_text": "Whether you're a coffee enthusiast or a specialty producer, there's a place for you in the SmilingCups community.",
+    "explore_coffees_button": "Explore Coffees",
+    "become_producer_button": "Become a Producer"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "step1": "Shipping & Cart",
+    "step2": "Address",
+    "step3": "Payment",
+    "order_summary": "Order Summary",
+    "your_cart": "Your Cart",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "tax": "Tax",
+    "total": "Total",
+    "next_step": "Next Step",
+    "edit_cart": "Edit Cart",
+    "continue_to_shipping": "Continue to Shipping",
+    "continue_to_payment": "Continue to Payment",
+    "place_order": "Place Order",
+    "empty_cart": "Your cart is empty.",
+    "go_to_shop": "Go to Shop",
+    "go_to_subscriptions": "Go to Subscriptions",
+    "remove_item": "Remove",
+    "free": "Free",
+    "product_name_placeholder": "Product Name",
+    "product_price_placeholder": "$00.00",
+    "shipping_address": "Shipping address",
+    "full_name": "Full Name",
+    "address_line1": "Address Line 1",
+    "address_line2": "Address Line 2 (Optional)",
+    "city": "City",
+    "state_province": "State/Province",
+    "zip_code": "ZIP Code",
+    "country": "Country",
+    "phone": "Phone",
+    "payment_information": "Payment Information",
+    "card_number": "Card Number",
+    "card_name": "Name on Card",
+    "expiry_date": "Expiry Date",
+    "cvv": "CVV",
+    "order_confirmed_title": "ORDER CONFIRMED!",
+    "order_confirmed_message": "Your order has been successfully placed and will be processed shortly.",
+    "order_number": "Order Number:",
+    "tracking_number": "Tracking Number:",
+    "thank_you_message": "Thank you for your purchase!",
+    "back_to_shop": "Back to Shop",
+    "view_order_details": "View Order Details",
+    "problem_title": "There was a problem...!",
+    "problem_message": "Unfortunately, we couldn't process your order. Please try again later or contact support.",
+    "try_again": "Try Again",
+    "edit_address": "Edit Address"
   }
 }
