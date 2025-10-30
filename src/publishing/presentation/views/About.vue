@@ -16,7 +16,7 @@ const { t } = useI18n();
         <p v-html="t('about.mission_text').replace(/\n/g, '<br><br>')"></p>
       </div>
       <div class="mission-image">
-        <img src="" alt="Coffee plantation">
+        <img src="../../../assets/AppoutCoffees.png" alt="Coffee plantation">
       </div>
     </section>
 

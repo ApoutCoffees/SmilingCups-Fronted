@@ -6,7 +6,7 @@ const { t } = useI18n();
 <template>
   <div class="role-selection-container">
     <div class="logo-header">
-      <img src="" alt="Smiling Cups Logo" />
+      <img src="../../../assets/Icon.png" alt="Smiling Cups Logo" />
       <h1>SmilingCups</h1>
     </div>
     <h2>{{ t('role_selection.welcome') }}</h2>
@@ -15,7 +15,7 @@ const { t } = useI18n();
     <div class="options-container">
       <div class="option-card">
         <div class="icon-placeholder">
-          <img src="" alt="Coffee Lover Icon">
+          <img src="../../../assets/HearthIcon.png" alt="Coffee Lover Icon">
         </div>
         <h3>{{ t('role_selection.coffee_lover_title') }}</h3>
         <p>{{ t('role_selection.coffee_lover_desc') }}</p>
@@ -24,7 +24,7 @@ const { t } = useI18n();
 
       <div class="option-card">
         <div class="icon-placeholder">
-          <img src="" alt="Producer Icon">
+          <img src="../../../assets/CoffebuttonIcon.png" alt="Producer Icon">
         </div>
         <h3>{{ t('role_selection.producer_title') }}</h3>
         <p>{{ t('role_selection.producer_desc') }}</p>

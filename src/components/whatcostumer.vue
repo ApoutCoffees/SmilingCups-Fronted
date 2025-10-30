@@ -12,7 +12,7 @@ const { t } = useI18n();
         <p class="stars"># # # # #</p>
         <p class="quote">{{ t('home.testimonials.customer1_quote') }}</p>
         <div class="customer-info">
-          <img src="../../../assets/imagen1.png" alt="1">
+          <img src="../assets/" alt="1">
           <div>
             <strong>{{ t('home.testimonials.customer1_name') }}</strong>
             <span>{{ t('home.testimonials.customer1_level') }}</span>
