@@ -51,7 +51,7 @@ const handleLogin = async () => {
 <template>
   <div class="auth-container">
     <div class="logo-container">
-      <img src="" alt="Smiling Cups Logo" />
+      <img src="../../../assets/Icon.png" alt="Smiling Cups Logo" />
       <p>SmilingCups</p>
     </div>
 
