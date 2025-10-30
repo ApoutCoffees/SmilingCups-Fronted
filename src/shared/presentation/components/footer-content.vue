@@ -78,12 +78,31 @@ const { t } = useI18n();
 </template>
 
 <style scoped>
+
 footer {
   background-color: #2C1810;
   color: #ffffff;
 }
+.compact-footer {
+  font-size: 1rem;
+  line-height: 1.5;
+}
 
-/* Layout general */
+.compact-footer h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+
+  color: #CDAC77;
+}
+
+.compact-footer p,
+.compact-footer a,
+.compact-footer span,
+.compact-footer li {
+  font-size: 1.4rem;
+  color: #DDAA88;
+}
+
 .footer-layout {
   display: flex;
   justify-content: space-between;
@@ -91,45 +110,30 @@ footer {
   flex-wrap: wrap;
   gap: 1rem;
 }
-
-/* Secciones */
 .footer-start {
-  flex: 1;
-  min-width: 200px;
+  flex: 1 1 250px;
 }
 
 .footer-center {
-  flex: 2;
-  min-width: 250px;
+  flex: 2 1 350px;
+}
+.footer-center ul {
+  list-style: none;
 }
 
 .footer-end {
-  flex: 1;
-  min-width: 220px;
+  flex: 1 1 250px;
 }
-
-/* Compacto */
-.compact-footer {
-  font-size: 0.7rem;
-  line-height: 1.3rem;
-}
-
-.compact-footer h4 {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.compact-footer p,
-.compact-footer a,
-.compact-footer span {
-  font-size: 1.4rem;
-}
-
 a {
   transition: color 0.3s ease;
 }
 
 a:hover {
+  color: #CDAC77;
+}
+.footer-start .flex p {
+  font-size: 1.4rem;
+  font-weight: 700;
   color: #CDAC77;
 }
 </style>
