@@ -23,8 +23,14 @@ const items = [
     <header class="header">
       <pv-toolbar class="bg-primary">
         <template #start>
-          <img
-              src="../../../assets/Icon.png"  alt="Smiling Cups Logo" width="60" height="60" /> <p class="brand-text" >SMILING CUPS</p> <div class="navigation-links">
+          <router-link to="/welcome" class="logo-link">
+            <img src="../../../assets/Icon.png"  alt="Smiling Cups Logo" width="60" height="60" />
+          </router-link>
+          <router-link to="/welcome" class="logo-link">
+            <p class="brand-text" >SMILING CUPS</p>
+          </router-link>
+
+          <div class="navigation-links">
           <pv-button
               v-for="item in items"
               :key="item.label"
@@ -49,7 +55,7 @@ const items = [
             </router-link>
           </div>
           <div v-else class="login-button-container">
-            <router-link to="/welcome">
+            <router-link to="/login">
               <pv-button class="login-button p-button-primary">
                 {{ t('option.login_signup') }}
               </pv-button>
