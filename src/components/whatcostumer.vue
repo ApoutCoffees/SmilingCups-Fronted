@@ -23,7 +23,7 @@ const { t } = useI18n();
         <p class="stars"># # # # #</p>
         <p class="quote">{{ t('home.testimonials.customer2_quote') }}</p>
         <div class="customer-info">
-          <img src="../../../assets/imagen1.png" alt="2">
+          <img src="../assets/image1.png" alt="2">
           <div>
             <strong>{{ t('home.testimonials.customer2_name') }}</strong>
             <span>{{ t('home.testimonials.customer2_level') }}</span>
@@ -34,7 +34,7 @@ const { t } = useI18n();
         <p class="stars"># # # # #</p>
         <p class="quote">{{ t('home.testimonials.customer3_quote') }}</p>
         <div class="customer-info">
-          <img src="../../../assets/imagen1.png" alt="3">
+          <img src="../assets/imagen1.png" alt="3">
           <div>
             <strong>{{ t('home.testimonials.customer3_name') }}</strong>
             <span>{{ t('home.testimonials.customer3_level') }}</span>
