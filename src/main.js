@@ -6,9 +6,12 @@ import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
 import Material from '@primeuix/themes/material';
 import PrimeVue from 'primevue/config';
-import { useAuth } from './auth';
 
-import cart from './services/cart.js';
+
+import { useAuth } from './iam/application/iam.store.js';
+
+
+
 import {
     Button, Card, Checkbox, Column, ConfirmationService, ConfirmDialog, DataTable,
     Dialog, DialogService, Drawer, FileUpload, FloatLabel, IconField, InputIcon,
@@ -20,10 +23,10 @@ import pinia from "./pinia.js";
 
 const app = createApp(App);
 
+// Tu lógica de 'auth' (¡ahora funciona porque la importación es correcta!)
 const auth = useAuth();
 auth.checkInitialAuthState();
 app.provide('auth', auth);
-app.provide('cart', cart);
 app
     .use(i18n)
     .use(PrimeVue, {theme: { preset: Material}, ripple: true})
