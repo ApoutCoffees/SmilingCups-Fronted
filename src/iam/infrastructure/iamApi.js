@@ -3,12 +3,12 @@ import { BaseApi } from '../../shared/infrastructure/BaseApi.js';
 
 class IamApi extends BaseApi {
     constructor() {
-        super(); // Llama al constructor de BaseApi para crear this.http
+        super();
     }
 
     async loginUser(email, password) {
         try {
-            const response = await this.http.get('users', { // Usa this.http
+            const response = await this.http.get('users', {
                 params: { email: email, password: password }
             });
             return response.data.length === 1 ? response.data[0] : null;
@@ -20,7 +20,7 @@ class IamApi extends BaseApi {
 
     async createUser(userData) {
         try {
-            const response = await this.http.post('users', userData); // Usa this.http
+            const response = await this.http.post('users', userData);
             return response.data;
         } catch (error) {
             console.error('Error creating user:', error);

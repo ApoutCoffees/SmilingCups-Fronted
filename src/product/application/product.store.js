@@ -5,13 +5,13 @@ import ProductApi from '../infrastructure/ProductApi.js';
 
 export const useProductStore = defineStore('product', () => {
 
-    // --- 1. STATE ---
+
 
     const allCafes = ref([]);
     const loading = ref(true);
     const error = ref(null);
 
-    // --- 2. GETTERS (Estado Calculado) ---
+
 
     const originsOptions = computed(() => {
         const uniqueOrigins = new Set(allCafes.value.map(cafe => cafe.origen_key).filter(Boolean));
@@ -24,7 +24,7 @@ export const useProductStore = defineStore('product', () => {
         return Array.from(new Set(flattenedNotes)).filter(Boolean).sort();
     });
 
-    // --- 3. ACTIONS ---
+
 
     async function fetchCoffees() {
         loading.value = true;
@@ -42,7 +42,7 @@ export const useProductStore = defineStore('product', () => {
         }
     }
 
-    // --- 4. RETURN ---
+
     return {
 
         allCafes,
@@ -52,7 +52,7 @@ export const useProductStore = defineStore('product', () => {
         originsOptions,
         flavorNotesOptions,
 
-        // Actions
+
         fetchCoffees,
     };
 });

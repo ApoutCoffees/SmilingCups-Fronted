@@ -42,31 +42,28 @@ export const usePaymentStore = defineStore('payment', () => {
         }
     }
 
-    // --- NUEVA LÓGICA DE PEDIDOS ---
 
-    // 1. Estado para los pedidos
     const orders = ref([]);
     const loadingOrders = ref(true);
     const ordersError = ref(null);
 
-    // 2. Acción para obtener los pedidos
     async function fetchOrders(userId) {
         loadingOrders.value = true;
         ordersError.value = null;
         try {
-            // El Store llama a la API
+
             orders.value = await PaymentApi.getOrders(userId);
         } catch(e) {
             console.error("Error fetching orders:", e);
-            ordersError.value = "Failed to load orders."; // Mensaje genérico
+            ordersError.value = "Failed to load orders.";
         } finally {
             loadingOrders.value = false;
         }
     }
 
-    // --- RETURN (Exponemos todo) ---
+
     return {
-        // Carrito
+
         selectedPlan: readonly(selectedPlan),
         cartTotal,
         itemCount,
@@ -74,7 +71,7 @@ export const usePaymentStore = defineStore('payment', () => {
         clearCart,
         placeOrder,
 
-        // Pedidos (Nuevo)
+
         orders,
         loadingOrders,
         ordersError,

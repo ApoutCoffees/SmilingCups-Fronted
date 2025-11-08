@@ -1,5 +1,5 @@
 
-// src/product/infrastructure/ProductApi.js
+
 import { BaseApi } from '../../shared/infrastructure/BaseApi.js';
 
 class ProductApi extends BaseApi {
