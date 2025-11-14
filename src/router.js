@@ -56,13 +56,15 @@ const router = createRouter({
     routes: routes,
 });
 
+const auth = useAuth();
+auth.checkInitialAuthState();
+
 router.beforeEach((to, from, next) => {
     console.log(`Navigating from ${from.name || 'start'} to ${to.name}`);
 
     const baseTitle = 'Smiling Cups';
     document.title = `${baseTitle} - ${to.meta['title'] || 'Welcome'}`;
 
-    const auth = useAuth();
     const loggedIn = auth.loggedInUserId.value;
     const userType = auth.loggedInUserType.value;
 

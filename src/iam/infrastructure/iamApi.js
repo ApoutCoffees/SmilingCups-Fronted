@@ -6,12 +6,19 @@ class IamApi extends BaseApi {
         super();
     }
 
+
+
     async loginUser(email, password) {
         try {
-            const response = await this.http.get('users', {
-                params: { email: email, password: password }
-            });
-            return response.data.length === 1 ? response.data[0] : null;
+
+            const response = await this.http.get('users');
+
+
+            const user = response.data.find(u => u.email === email && u.password === password);
+
+
+            return user ? user : null;
+
         } catch (error) {
             console.error('Error during login:', error);
             throw error;
@@ -28,10 +35,19 @@ class IamApi extends BaseApi {
         }
     }
 
+
+
     async getUserById(userId) {
         try {
-            const response = await this.http.get(`users/${userId}`); // Usa this.http
-            return response.data;
+
+            const response = await this.http.get('users');
+
+
+            const user = response.data.find(u => u.id === parseInt(userId));
+
+
+            return user ? user : null;
+
         } catch (error) {
             console.error('Error fetching profile:', error);
             throw error;
