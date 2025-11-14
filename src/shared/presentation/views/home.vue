@@ -26,6 +26,15 @@ const { t } = useI18n();
         <div class="hero-buttons">
           <button class="btn btn-secondary">{{ t('home.browse_button') }}</button>
           <button class="btn btn-primary">{{ t('home.plans_button') }}</button>
+
+          <a
+              href="https://www.google.com"
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+          >
+            {{ t('home.official_page_button') }}
+          </a>
         </div>
       </div>
       <div class="hero-image-container">

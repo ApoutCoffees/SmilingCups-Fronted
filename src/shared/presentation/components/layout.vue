@@ -8,8 +8,6 @@ const { t } = useI18n();
 const items = [
   { label: "option.about", to: "/home" },
   { label: "option.catalog", to: "/catalog" },
-  { label: "option.goals", to: "/goals" },
-  { label: "option.contact", to: "/contact" },
 ];
 </script>
 
@@ -21,13 +19,15 @@ const items = [
     <header class="header">
       <pv-toolbar class="bg-primary">
         <template #start>
-          <img
-              src="../../../assets/Icon.png"
-              alt="El logo de mi increíble compañía"
-              width="60"
-              height="60"
-          />
-          <p class="brand-text">SMILING CUPS</p>
+          <router-link to="/home" class="brand-link">
+            <img
+                src="../../../assets/Icon.png"
+                alt="El logo de mi increíble compañía"
+                width="50"
+                height="50"
+            />
+            <p class="brand-text">SMILING CUPS</p>
+          </router-link>
           <div class="navigation-links">
             <pv-button
                 v-for="item in items"
@@ -94,8 +94,8 @@ const items = [
   font-size: 1.5rem;
   color: #2C1810;
   margin: 0 2rem 0 10px;
+  transition: color 0.2s ease-in-out; /* Añadido para transición suave */
 }
-
 .navigation-links {
   display: flex;
   gap: 1rem;
@@ -113,5 +113,23 @@ const items = [
   background-color: #2c1810 !important;
   color: #ffffff !important;
   border-radius: 8px;
+}
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease-in-out;
+  padding: 0 0.5rem;
+}
+
+.brand-link:hover {
+  transform: scale(1.1) ;
+  transition: 0.3s ease-in-out;
+}
+
+.brand-link:hover .brand-text {
+  color: #ffffff !important;
+  transition: 0.2s ease-in-out;
 }
 </style>
