@@ -1,0 +1,317 @@
+@startuml
+
+left to right direction
+
+package "iam"{
+    package "domain.model"{
+        class User{
+            -id: int
+            -subscriptionId: int
+            -fullName: string
+            -email: string
+            -password: string
+            -phone: long
+            -address: string
+            -city: string
+            -country: string
+            -isVerified: boolean
+            -type: UserType
+        }
+        enum UserType{
+            CUSTOMER
+            PRODUCER
+        }
+    }
+
+    package "infrastructure"{
+        class UserAssembler{
+            +toEntityFromResource(resource)
+            +toEntitiesFromResponse(response)
+        }
+        class IamApi{
+            -usersEndpoint: BaseEndpoint
+            --
+            +getUsers(): User
+            +getUserById(id: int): User
+            +createUser(resource): User
+        }
+    }
+
+    package "application"{
+        class IamStore
+    }
+
+    package "presentation"{
+        package "views"{
+            class SignUpView{
+                -iamStore: IamStore
+            }
+            class LogInView{
+                -iamStore: IamStore
+            }
+        }
+    }
+}
+
+package "product"{
+    package "domain.model"{
+        class MysteryBox{
+            -id: int
+            -totalAmount: float
+            -createdAt: Date
+            -updatedAt: Date
+        }
+
+        class Coffee{
+            -id: int
+            -mysteryBoxId: int
+            -producerId: int
+            -name: string
+            -kind: string
+            -notes: string[]
+            -place: string
+            -originKey: string
+            -description
+            -imageUrl: string
+            -price: float
+            -toasted: string
+            -minSubscription: string
+        }
+
+    }
+
+    package "infrastructure"{
+        class MysteryBoxAssembler{
+            +toEntityFromResource(resource)
+            +toEntitiesFromResponse(response)
+        }
+        class CoffeeAssembler{
+            +toEntityFromResource(resource)
+            +toEntitiesFromResponse(response)
+        }
+        class ProductApi{
+            -mysteryBoxesEndpoint: BaseEndpoint
+            -coffeesEndpoint: BaseEndpoint
+            --
+            +getMysteryBoxes(): MysteryBox
+            +getMysteryBoxById(id: int): MysteryBox
+            +createMysteryBox(resource): MysteryBox
+            +getCoffees(): Coffee
+            +getCoffeeById(id: int): Coffee
+            +createCoffee(resource): Coffee
+        }
+    }
+
+    package "application"{
+        class ProductStore
+    }
+
+    package "presentation"{
+        package "views"{
+            class Catalog{
+                -productStore: ProductStore
+            }
+            class MysteryBoxView{
+                -productStore: ProductStore
+            }
+        }
+    }
+}
+
+package "payment"{
+    package "domain.model"{
+        class Subscription{
+            -id int
+            -status: SubscriptionStatus
+            -plan: SubscriptionPlan | null
+        }
+        enum SubscriptionStatus{
+            ACTIVE
+            INACTIVE
+        }
+        enum SubscriptionPlan{
+            BASIC
+            PREMIUM
+            VIP
+        }
+        class Order{
+            -id: int
+            -userId: int
+            -subscriptionId: int
+            -orderNumber: string
+            -total: float
+            -status: OrderStatus
+            -type: string
+        }
+        enum OrderStatus{
+            PENDING
+            COMPLETED
+            CANCELLED
+        }
+    }
+
+    package "infrastructure"{
+        class SubscriptionAssembler{
+            +toEntityFromResource(resource)
+            +toEntitiesFromResponse(response)
+        }
+        class OrderAssembler{
+            +toEntityFromResource(resource)
+            +toEntitiesFromResponse(response)
+        }
+        class PaymentApi{
+            -subscriptionsEndpoint: BaseEndpoint
+            -ordersEndpoint: BaseEndpoint
+            --
+            +getSubscriptions(): Subscription
+            +getSubscriptionById(id: int): Subscription
+            +createSubscription(resource): Subscription
+            +getOrders(): Order
+            +getOrderById(id: int): Order
+            +createOrder(resource): Order
+        }
+    }
+
+    package "application"{
+        class PaymentStore
+    }
+
+    package "presentation"{
+        package "views"{
+            class CartView{
+                -paymentStore: PaymentStore
+            }
+            class ShippingView{
+                -paymentStore: PaymentStore
+            }
+            class PaymentView{
+                -paymentStore: PaymentStore
+            }
+            class PaymentConfirmedView{
+                -paymentStore: PaymentStore
+            }
+        }
+        package "components"{
+            class OrderItem{
+                -paymentStore: PaymentStore
+            }
+            class SubscriptionItem{
+                -paymentStore: PaymentStore
+            }
+        }
+    }
+}
+
+package "profiles"{
+    package "domain.model"{
+
+        class Favorite{
+            -id: int
+            -userId: int
+            -coffeeId: int
+        }
+        class ProducerStat{
+            -id: int
+            -userId: int
+            -unitsSold: int
+            -topCoffeeId: int
+        }
+        class MonthlySale{
+            -id: int
+            -producerStatId: int
+            -month: string
+            -sales: int
+        }
+
+    }
+    package "infrastructure"{
+        class FavoriteAssembler{
+            +toEntityFromResource(resource)
+            +toEntitiesFromResponse(response)
+        }
+        class ProducerStatAssembler{
+            +toEntityFromResource(resource)
+            +toEntitiesFromResponse(response)
+        }
+        class MonthlySaleAssembler{
+            +toEntityFromResource(resource)
+            +toEntitiesFromResponse(response)
+        }
+        class ProfilesApi{
+            -favoritesEndpoint: BaseEndpoint
+            -producerStatsEndpoint: BaseEndpoint
+            -MonthlySalesEndpoint: BaseEndpoint
+            --
+            +getFavorites(): Favorite
+            +getFavoriteById(id: int): Favorite
+            +createFavorite(resource): Favorite
+            +getProducerStats(): ProducerStat
+            +getProducerStatById(id: int): ProducerStat
+            +createProducerStat(resource): ProducerStat
+            +getMonthlySales(): MonthlySale
+            +getMonthlySaleById(id: int): MonthlySale
+            +createMonthlySale(resource): MonthlySale
+        }
+    }
+    package "application"{
+        class ProfilesStore
+    }
+    package "presentation"{
+        package "views"{
+            class ProfileView{
+                -profilesStore: ProfilesStore
+            }
+        }
+    }
+}
+
+package "shared"{
+    package "infrastructure"{
+        class BaseEndpoint
+        class BaseApi
+    }
+    package "presentation"{
+        package "views"{
+            class PageNotfound
+        }
+        package "components"{
+            class LanguageSwitcher
+            class Layout
+        }
+    }
+}
+
+
+User --> UserType
+User --> Subscription
+IamApi --> BaseEndpoint
+IamApi --|> BaseApi
+SignUpView --> IamStore
+LogInView --> IamStore
+Coffee --> MysteryBox
+Coffee --> User
+ProductApi --> BaseEndpoint
+ProductApi --|> BaseApi
+Catalog --> ProductStore
+MysteryBoxView --> ProductStore
+Subscription --> SubscriptionPlan
+Subscription --> SubscriptionStatus
+Order --> User
+Order --> Subscription
+Order --> OrderStatus
+PaymentApi --> BaseEndpoint
+PaymentApi --|> BaseApi
+CartView --> PaymentStore
+ShippingView --> PaymentStore
+PaymentConfirmedView --> PaymentStore
+OrderItem --> PaymentStore
+SubscriptionItem -->PaymentStore
+Favorite --> Coffee
+Favorite --> User
+ProducerStat --> User
+MonthlySale --> ProducerStat
+ProfilesApi --> BaseEndpoint
+ProfilesApi --|> BaseApi
+ProfileView --> ProfilesStore
+
+@enduml

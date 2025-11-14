@@ -1,0 +1,347 @@
+{
+  "option": {
+    "catalog": "Catálogo",
+    "about": "Nosotros",
+    "subscriptions": "Suscripciones",
+    "my_profile": "Mi Perfil",
+    "login_signup": "Ingresar / Registrarse",
+    "goals": "Metas",
+    "contact": "Contacto"
+  },
+  "header": {
+    "shop": "Tienda",
+    "subscriptions": "Suscripciones",
+    "about": "Nosotros",
+    "welcome": "Bienvenido",
+    "my_profile": "Mi Perfil",
+    "logout": "Cerrar Sesión",
+    "sign_in": "Ingresar",
+    "sign_up": "Registrarse"
+  },
+  "cart_icon": {
+    "title": "Mi Carrito"
+  },
+  "authoring-phrase": {
+    "intro": "© 2025 SmilingCups. Todos los derechos reservados. Política de Privacidad Términos de Servicio",
+    "use": "Conectando a los amantes del café con productores excepcionales de todo el mundo.",
+    "author": "Hecho con ☕ por el Equipo de Desarrolladores de ApoutCoffee"
+  },
+  "footer": {
+    "brand": {
+      "description": "Conectando a los amantes del café con productores excepcionales de todo el mundo."
+    },
+    "quick-links": {
+      "title": "Enlaces Rápidos",
+      "about": "Sobre Nosotros",
+      "producers": "Metas",
+      "subscription-plans": "Nuestros Productores",
+      "blog": "Blog"
+    },
+    "support": {
+      "title": "Soporte",
+      "help-center": "Contacto",
+      "shipping-info": "Perfil",
+      "faq": "Preguntas Frecuentes"
+    },
+    "contact": {
+      "title": "Contacto",
+      "email": "ejemplo@smilingcups.com",
+      "phone": "+51 999 999 999",
+      "address": "123 Confucio, Surco"
+    },
+    "slogan": "Conectando a los amantes del café con productores excepcionales de todo el mundo.",
+    "links": {
+      "title": "Enlaces",
+      "about": "Sobre Nosotros",
+      "faq": "Preguntas Frecuentes",
+      "contact": "Contacto",
+      "blog": "Blog"
+    },
+    "copyright": "© 2025 SmilingCups. Todos los derechos reservados.",
+    "privacy_policy": "Política de Privacidad",
+    "terms_of_service": "Términos de Servicio"
+  },
+  "home": {
+    "title": "Café excepcional obtenido directamente de productores apasionados",
+    "content": "Descubre sabores únicos cada mes mientras apoyas directamente a pequeños productores de café de todo el mundo.",
+    "browse_button": "Ver catálogo",
+    "plans_button": "Ver planes",
+    "why_us": {
+      "title": "¿Por qué SmilingCups?",
+      "subtitle": "Más que una suscripción de café, una experiencia que conecta personas",
+      "quality_title": "Calidad Premium",
+      "quality_desc": "Cada grano es cuidadosamente seleccionado por catadores expertos.",
+      "impact_title": "Impacto Directo",
+      "impact_desc": "Tu compra apoya directamente a pequeños productores y sus familias.",
+      "origins_title": "Orígenes Únicos",
+      "origins_desc": "Explora sabores de más de 30 países diferentes cada mes."
+    },
+    "plans": {
+      "title": "Planes de Suscripción",
+      "subtitle": "Elige el plan perfecto para tu pasión por el café",
+      "most_popular": "Más Popular",
+      "subscribe_now": "Suscríbete ahora",
+      "basic": { "title": "Básico", "price": "14.99$ / MES", "features": [ "250g de café premium por mes", "Selección de 2-3 orígenes rotativos", "Acceso a la comunidad", "Envío gratis" ] },
+      "premium": { "title": "Premium", "price": "39.99$ / MES", "features": [ "500g de café premium por mes", "Selección de 4-5 orígenes rotativos", "Caja sorpresa trimestral", "Descuentos en compras adicionales", "Acceso prioritario a lotes limitados", "Envío gratis" ] },
+      "vip": { "title": "VIP", "price": "59.99$ / MES", "features": [ "1300g de café premium por mes", "Micro-lotes exclusivos", "Caja sorpresa mensual", "Videollamada con productores", "20% de descuento en todas las compras", "Acceso VIP a eventos", "Envío express internacional gratis" ] }
+    },
+    "testimonials": {
+      "title": "Lo que dicen nuestros clientes",
+      "subtitle": "Miles de amantes del café disfrutan de SmilingCups todos los días.",
+      "customer1_quote": "\"El café más increíble que he probado. Cada mes es una nueva aventura de sabores.\"", "customer1_name": "Maria Gonzalez", "customer1_level": "Cliente Premium",
+      "customer2_quote": "\"Saber que estoy apoyando directamente a los productores hace que cada taza sea especial.\"", "customer2_name": "Carlos Rodriguez", "customer2_level": "Cliente Premium",
+      "customer3_quote": "\"La calidad es excepcional y el servicio al cliente es inmejorable. Totalmente recomendado.\"", "customer3_name": "Ana Martínez", "customer3_level": "Cliente Premium"
+    },
+    "cta": {
+      "title": "¿Listo para comenzar tu aventura cafetera?",
+      "subtitle": "Únete a nuestra comunidad y descubre el mejor café del mundo."
+    }
+  },
+  "page-not-found": {
+    "title": "Página No Encontrada",
+    "content": "La ruta {unavailable-route} no está disponible.",
+    "go-home": "Ir al Inicio"
+  },
+  "catalog": {
+    "title": "Nuestra Colección de Café",
+    "subtitle": "Descubre café de especialidad excepcional de productores independientes.",
+    "loading_message": "Cargando cafés... ☕",
+    "error_message": "Fallo al obtener productos. Fallo al ejecutar 'json' en la respuesta: Final inesperado de la entrada JSON.",
+    "notes_label": "Notas:",
+    "search_placeholder": "Buscar cafés...",
+    "search_button": "Buscar",
+    "sort_by_label": "Ordenar por...",
+    "no_products_found": "No se encontraron productos. Intenta ajustar tus filtros.",
+    "plan_filter_label": "Plan Requerido",
+    "plan_basic": "Básico",
+    "plan_premium": "Premium",
+    "plan_vip": "VIP",
+    "origin_label": "Origen",
+    "roast_profile_label": "Perfil de Tostado",
+    "flavor_notes_label": "Notas de Sabor",
+    "light_roast": "Claro",
+    "medium_roast": "Medio",
+    "dark_roast": "Oscuro",
+    "fruity_note": "Afrutado",
+    "floral_note": "Floral",
+    "nutty_note": "A nuez",
+    "chocolatey_note": "Achocolatado",
+    "spicy_note": "Especiado",
+    "caramel_note": "Caramelo",
+    "earthy_note": "Terroso",
+    "citrus_note": "Cítrico",
+    "tea_like_note": "Similar al té",
+    "winey_note": "Avinado",
+    "sweet_note": "Dulce",
+    "smoky_note": "Ahumado",
+    "mild_note": "Suave",
+    "country_ethiopia": "Etiopía",
+    "country_colombia": "Colombia",
+    "country_kenya": "Kenia",
+    "country_brazil": "Brasil",
+    "country_costa_rica": "Costa Rica",
+    "country_peru": "Perú",
+    "country_panama": "Panamá",
+    "country_indonesia": "Indonesia",
+    "country_guatemala": "Guatemala",
+    "country_jamaica": "Jamaica",
+    "min_subscription_label": "Suscripción Mínima:",
+    "contact_label": "Contacto:",
+    "view_subscriptions_button": "Suscribirse con {planName}"
+  },
+  "product_detail": {
+    "add_to_cart": "Añadir al Carrito",
+    "error_loading": "Fallo al cargar detalles del producto.",
+    "loading": "Cargando producto...",
+    "not_found": "Producto no encontrado.",
+    "producer": "Productor",
+    "origin": "Origen",
+    "roast": "Tueste",
+    "flavor_notes": "Notas de Sabor"
+  },
+  "profile": {
+    "title": "Mi perfil",
+    "sidebar": {
+      "subscriptions": "Suscripciones",
+      "rewards": "Recompensas",
+      "payment_methods": "Métodos de Pago",
+      "configuration": "Configuración",
+      "orders": "Pedidos"
+    },
+    "membership_level": {
+      "basic": "Miembro Básico",
+      "premium": "Miembro Premium",
+      "vip": "Miembro VIP"
+    },
+    "current_subscription": {
+      "title": "Suscripción Actual",
+      "billing": "FACTURACIÓN MENSUAL",
+      "change_button": "Cambiar suscripción",
+      "pause_button": "Pausar",
+      "cancel_button": "Cancelar",
+      "status_active": "ACTIVA"
+    },
+    "next_delivery": {
+      "title": "Próxima Entrega",
+      "product_placeholder": "ETIOPE YIRGACHEFFE"
+    },
+    "order_history": {
+      "title": "Historial de Pedidos:",
+      "status_delivered": "ENTREGADO",
+      "see_details": "Ver detalles"
+    },
+    "dev_button_label": "Dev: Cambiar Plan",
+    "loading": "Cargando perfil...",
+    "error": "No se pudo cargar el perfil.",
+    "not_logged_in": "Por favor, inicia sesión para ver tu perfil.",
+    "status": {
+      "title": "Estado de la Cuenta",
+      "verification_label": "Verificación:",
+      "verified": "Verificado",
+      "not_verified": "No Verificado",
+      "subscription_label": "Suscripción:",
+      "plan_label": "Plan Actual:",
+      "active": "Activa",
+      "inactive": "Inactiva",
+      "plan_basic": "Básico",
+      "plan_premium": "Premium",
+      "plan_vip": "VIP"
+    },
+    "personal_info": {
+      "title": "Información Personal",
+      "fullName": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "phone": "Teléfono",
+      "address": "Dirección",
+      "city": "Ciudad",
+      "country": "País",
+      "save_button": "Guardar Cambios"
+    }
+  },
+  "auth": {
+    "welcome": "¡Bienvenido!",
+    "prompt": "Elige cómo quieres unirte a esta comunidad",
+    "coffee_lover": "Amante del Café",
+    "coffee_lover_desc": "Explora sabores únicos del mundo y apoya directamente a los productores.",
+    "producer": "Productor",
+    "producer_desc": "Conecta directamente con miles de amantes del café y vende tus productos.",
+    "customer_account": "Cuenta de Cliente",
+    "producer_account": "Cuenta de Productor",
+    "log_in": "Iniciar Sesión",
+    "create_account": "Crear Cuenta",
+    "email_username": "Email/Usuario",
+    "password": "Contraseña",
+    "remember_me": "Recordarme",
+    "forgot_password": "¿Olvidaste tu contraseña?",
+    "no_account": "¿No tienes una cuenta?",
+    "sign_up_now": "Regístrate ahora",
+    "first_name": "Nombre",
+    "last_name": "Apellido",
+    "company_name": "Nombre del productor",
+    "confirm_password": "Confirmar Contraseña",
+    "terms": "Acepto los términos, condiciones y política de privacidad.",
+    "already_have_account": "¿Ya tienes una cuenta?",
+    "email": "Email"
+  },
+  "orders": {
+    "title": "Mis Pedidos",
+    "order_number": "Pedido #",
+    "date": "Fecha",
+    "status": "Estado",
+    "total": "Total",
+    "no_orders": "Aún no has realizado ningún pedido.",
+    "error_loading": "Fallo al cargar los pedidos."
+  },
+  "favorites": {
+    "title": "Mis Favoritos",
+    "no_favorites": "Aún no has guardado ningún favorito."
+  },
+  "subscriptions": {
+    "title": "Planes de Suscripción"
+  },
+  "role_selection": {
+    "welcome": "¡Bienvenido!",
+    "prompt": "Elige cómo quieres unirte a nuestra comunidad",
+    "coffee_lover_title": "Amante del Café",
+    "coffee_lover_desc": "Descubre cafés excepcionales de todo el mundo y apoya directamente a los productores.",
+    "producer_title": "Productor",
+    "producer_desc": "Conecta directamente con miles de amantes del café y vende tus productos premium.",
+    "start": "Empezar"
+  },
+  "producer_dashboard": {
+    "title": "Panel del Productor",
+    "total_sales": "Ventas Totales",
+    "units_sold": "Unidades Vendidas",
+    "top_product": "Producto Más Vendido",
+    "monthly_sales": "Ventas Mensuales",
+    "no_stats": "No hay estadísticas disponibles para este productor.",
+    "error_loading": "No se pudieron cargar las estadísticas.",
+    "access_denied": "Acceso denegado o usuario no autenticado."
+  },
+  "about": {
+    "title": "Sobre SmilingCups",
+    "subtitle": "Conectando a los amantes del café con productores excepcionales de todo el mundo",
+    "mission_title": "Nuestra Misión",
+    "mission_text": "En SmilingCups, creemos que un gran café comienza con grandes relaciones. Conectamos a productores de café de especialidad directamente con entusiastas que aprecian su arte.\n\nNuestra plataforma empodera a pequeños productores para alcanzar una audiencia global, asegurando que los amantes del café tengan acceso a los cafés de especialidad más frescos y auténticos disponibles.",
+    "values_title": "Nuestros Valores",
+    "value_quality_title": "Calidad",
+    "value_quality_text": "Solo trabajamos con productores que comparten nuestro compromiso con la excelencia y las prácticas sostenibles.",
+    "value_transparency_title": "Transparencia",
+    "value_transparency_text": "Conoce exactamente de dónde viene tu café y cómo se produce, de la finca a la taza.",
+    "value_sustainability_title": "Sostenibilidad",
+    "value_sustainability_text": "Apoyando prácticas éticas y la gestión ambiental en la producción de café a nivel mundial.",
+    "community_title": "Únete a Nuestra Comunidad",
+    "community_text": "Ya seas un entusiasta del café o un productor de especialidad, hay un lugar para ti en la comunidad de SmilingCups.",
+    "explore_coffees_button": "Explorar Cafés",
+    "become_producer_button": "Conviértete en Productor"
+  },
+  "checkout": {
+    "title": "Finalizar Compra",
+    "step1": "Envío y Carrito",
+    "step2": "Dirección",
+    "step3": "Pago",
+    "order_summary": "Resumen del Pedido",
+    "your_cart": "Tu Carrito",
+    "subtotal": "Subtotal",
+    "shipping": "Envío",
+    "tax": "Impuestos",
+    "total": "Total",
+    "next_step": "Siguiente Paso",
+    "edit_cart": "Editar Carrito",
+    "continue_to_shipping": "Continuar a Envío",
+    "continue_to_payment": "Continuar a Pago",
+    "place_order": "Realizar Pedido",
+    "empty_cart": "Tu carrito está vacío.",
+    "go_to_shop": "Ir a la Tienda",
+    "go_to_subscriptions": "Ir a Suscripciones",
+    "remove_item": "Eliminar",
+    "free": "Gratis",
+    "product_name_placeholder": "Nombre del Producto",
+    "product_price_placeholder": "$00.00",
+    "shipping_address": "Dirección de envío",
+    "full_name": "Nombre Completo",
+    "address_line1": "Dirección Línea 1",
+    "address_line2": "Dirección Línea 2 (Opcional)",
+    "city": "Ciudad",
+    "state_province": "Estado/Provincia",
+    "zip_code": "Código Postal",
+    "country": "País",
+    "phone": "Teléfono",
+    "payment_information": "Información de Pago",
+    "card_number": "Número de Tarjeta",
+    "card_name": "Nombre en la Tarjeta",
+    "expiry_date": "Fecha de Vencimiento",
+    "cvv": "CVV",
+    "order_confirmed_title": "¡PEDIDO CONFIRMADO!",
+    "order_confirmed_message": "Tu pedido ha sido realizado con éxito y será procesado en breve.",
+    "order_number": "Número de Pedido:",
+    "tracking_number": "Número de Seguimiento:",
+    "thank_you_message": "¡Gracias por tu compra!",
+    "back_to_shop": "Volver a la Tienda",
+    "view_order_details": "Ver Detalles del Pedido",
+    "problem_title": "¡Hubo un problema...!",
+    "problem_message": "Lamentablemente, no pudimos procesar tu pedido. Por favor, inténtalo de nuevo más tarde o contacta con soporte.",
+    "try_again": "Intentar de Nuevo",
+    "edit_address": "Editar Dirección"
+  }
+}
