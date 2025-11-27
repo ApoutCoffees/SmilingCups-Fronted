@@ -1,58 +1,48 @@
-
-import { defineStore } from 'pinia';
-import { ref, computed, nextTick } from 'vue';
+import { reactive, computed } from 'vue';
 import ProductApi from '../infrastructure/ProductApi.js';
+import { CoffeeAssembler } from '../infrastructure/CoffeeAssembler.js';
 
-export const useProductStore = defineStore('product', () => {
+const state = reactive({
+    coffees: [],
+    loading: false,
+    error: null
+});
 
-
-
-    const allCafes = ref([]);
-    const loading = ref(true);
-    const error = ref(null);
-
-
+export const useProductStore = () => {
+    const allCafes = computed(() => state.coffees);
+    const loading = computed(() => state.loading);
+    const error = computed(() => state.error);
 
     const originsOptions = computed(() => {
-        const uniqueOrigins = new Set(allCafes.value.map(cafe => cafe.origen_key).filter(Boolean));
-        return Array.from(uniqueOrigins).sort();
+        const unique = new Set(state.coffees.map(c => c.originKey).filter(Boolean));
+        return Array.from(unique).sort();
     });
 
     const flavorNotesOptions = computed(() => {
-        const allNotesArrays = allCafes.value.map(cafe => cafe.notas).filter(Array.isArray);
-        const flattenedNotes = allNotesArrays.flat();
-        return Array.from(new Set(flattenedNotes)).filter(Boolean).sort();
+        const allNotes = state.coffees.map(c => c.notes).filter(Array.isArray).flat();
+        return Array.from(new Set(allNotes)).sort();
     });
 
-
-
-    async function fetchCoffees() {
-        loading.value = true;
-        error.value = null;
+    const fetchCoffees = async () => {
+        state.loading = true;
+        state.error = null;
         try {
-
-            const data = await ProductApi.getCoffees();
-            allCafes.value = data || [];
-            await nextTick();
+            const response = await ProductApi.getCoffees();
+            state.coffees = CoffeeAssembler.toEntitiesFromResponse(response);
         } catch (e) {
-            console.error("Error al cargar cafés:", e);
-            error.value = "Error al cargar los cafés. Intenta de nuevo.";
+            console.error("Error fetching coffees:", e);
+            state.error = "Error al cargar los cafés.";
         } finally {
-            loading.value = false;
+            state.loading = false;
         }
-    }
-
+    };
 
     return {
-
         allCafes,
         loading,
         error,
-
         originsOptions,
         flavorNotesOptions,
-
-
-        fetchCoffees,
+        fetchCoffees
     };
-});
+};
