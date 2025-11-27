@@ -56,10 +56,10 @@ const { t } = useI18n();
   max-width: 1200px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #FFFBEB; /* Crema background */
+  background-color: #FFFBEB;
   border-radius: 20px;
-  border: 3px solid #EFE1C3; /* Borde suave */
-  color: #2C1810; /* Color principal de texto */
+  border: 3px solid #EFE1C3;
+  color: #2C1810;
   font-family: 'Amaranth', sans-serif;
 }
 
@@ -68,10 +68,9 @@ section {
   text-align: center;
 }
 section:last-of-type {
-  margin-bottom: 2rem; /* Menos espacio al final */
+  margin-bottom: 2rem;
 }
 
-/* Header */
 .about-header h1 {
   font-size: 2.8rem;
   margin-bottom: 0.5rem;
@@ -83,7 +82,6 @@ section:last-of-type {
   margin-top: 0;
 }
 
-/* Mission */
 .mission-section {
   display: flex;
   align-items: center;
@@ -94,11 +92,11 @@ section:last-of-type {
   flex: 1;
 }
 .mission-text h2 {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 .mission-text p {
-  font-size: 1rem;
+  font-size: 1.3rem;
   line-height: 1.7;
   color: #5c4b44;
 }
@@ -112,7 +110,6 @@ section:last-of-type {
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 
-/* Values */
 .values-section h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
@@ -136,19 +133,19 @@ section:last-of-type {
   margin-bottom: 0.8rem;
 }
 .value-card p {
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   line-height: 1.6;
   color: #5c4b44;
   margin: 0;
 }
 
-/* Community */
+
 .community-section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 .community-section p {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   color: #5c4b44;
   margin-bottom: 2rem;
   max-width: 600px;
@@ -161,7 +158,6 @@ section:last-of-type {
   gap: 1.5rem;
 }
 
-/* Reusing Button Styles (Ensure these classes exist globally or define them) */
 .btn {
   display: inline-block;
   text-decoration: none;
@@ -201,7 +197,7 @@ section:last-of-type {
     text-align: center;
   }
   .values-grid {
-    grid-template-columns: 1fr; /* Stack cards on small screens */
+    grid-template-columns: 1fr;
   }
 }
 </style>

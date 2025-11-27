@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const platformApi = import.meta.env.VITE_LEARNING_PLATFORM_API_URL;
+const platformApi = import.meta.env.VITE_LEARNING_PLATFORM_API_URL || "http://localhost:3000";
 
 /**
  * Base API class to handle HTTP requests using Axios
@@ -21,6 +21,7 @@ export class BaseApi {
      * Initializes the Axios HTTP client with the base URL from environment variables
      */
     constructor() {
+        console.log("URL ACTUAL DE LA API:", platformApi);
         this.#http = axios.create({
             baseURL: platformApi
         });

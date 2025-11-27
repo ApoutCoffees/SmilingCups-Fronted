@@ -1,26 +1,22 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { useAuth } from './iam/application/iam.store.js';
+import { useAuth } from './iam/application/iam.store.js'; // Importamos el nuevo store
 
-import RoleSelection from "./iam/components/views/RoleSelection.vue";
-import LogInView from "./iam/components/views/LogInView.vue";
-import SignUpView from "./iam/components/views/SignUpView.vue";
-
-import Catalog from "./product/components/views/Catalog.vue";
-
+// ... (Tus imports de vistas se mantienen igual: RoleSelection, LogInView, etc.)
+import RoleSelection from "./iam/presentation/components/views/RoleSelection.vue";
+import LogInView from "./iam/presentation/components/views/LogInView.vue";
+import SignUpView from "./iam/presentation/components/views/SignUpView.vue";
+import Catalog from "./product/presentation/components/views/Catalog.vue";
 import AboutView from "./shared/views/AboutView.vue";
 import GoalsView from "./shared/views/GoalsView.vue";
 import ContactView from "./shared/views/ContactView.vue";
-
-import SubscriptionsView from "./payment/components/views/SubscriptionsView.vue";
-import CartView from './payment/components/views/CartView.vue';
-import ShippingView from './payment/components/views/ShippingView.vue';
-import PaymentView from './payment/components/views/PaymentView.vue';
-import PaymentConfirmedView from './payment/components/views/PaymentConfirmedView.vue';
-import PaymentErrorView from './payment/components/views/PaymentErrorView.vue';
-
-import ProfileView from "./profiles/components/views/ProfileView.vue";
-import ProducerDashboardView from "./profiles/components/views/ProducerDashboardView.vue";
-
+import SubscriptionsView from "./payment/presentation/components/views/SubscriptionsView.vue";
+import CartView from './payment/presentation/components/views/CartView.vue';
+import ShippingView from './payment/presentation/components/views/ShippingView.vue';
+import PaymentView from './payment/presentation/components/views/PaymentView.vue';
+import PaymentConfirmedView from './payment/presentation/components/views/PaymentConfirmedView.vue';
+import PaymentErrorView from './payment/presentation/components/views/PaymentErrorView.vue';
+import ProfileView from "./profiles/presentation/components/views/ProfileView.vue";
+import ProducerDashboardView from "./profiles/presentation/components/views/ProducerDashboardView.vue";
 import PageNotfound from './shared/views/PageNotfound.vue';
 
 const routes = [
@@ -32,6 +28,7 @@ const routes = [
     { path: '/subscriptions', name: 'subscriptions', component: SubscriptionsView, meta: { title: 'Subscriptions' } },
     { path: '/goals', name: 'goals', component: GoalsView, meta: { title: 'Goals' } },
     { path: '/contact', name: 'contact', component: ContactView, meta: { title: 'Contact' } },
+    // Rutas protegidas
     { path: '/profile', name: 'profile', component: ProfileView, meta: { title: 'My Profile', requiresAuth: true, roles: ['customer'] } },
     { path: '/producer-dashboard', name: 'producerDashboard', component: ProducerDashboardView, meta: { title: 'Producer Dashboard', requiresAuth: true, roles: ['producer'] } },
     {
@@ -56,29 +53,36 @@ const router = createRouter({
     routes: routes,
 });
 
+// Inicializamos el store antes de usarlo
 const auth = useAuth();
 auth.checkInitialAuthState();
 
 router.beforeEach((to, from, next) => {
-    console.log(`Navigating from ${from.name || 'start'} to ${to.name}`);
-
     const baseTitle = 'Smiling Cups';
     document.title = `${baseTitle} - ${to.meta['title'] || 'Welcome'}`;
 
-    const loggedIn = auth.loggedInUserId.value;
-    const userType = auth.loggedInUserType.value;
+    // --- LÓGICA DDD ACTUALIZADA ---
+    const isAuthenticated = auth.isAuthenticated;
+    const currentUser = auth.currentUser; // Es una entidad User
 
-    if (to.meta.requiresAuth && !loggedIn) {
-        console.log(`Route ${to.name} requires auth, user not logged in. Redirecting to login.`);
+    if (to.meta.requiresAuth && !isAuthenticated) {
+        console.log(`Redirigiendo a login por falta de autenticación`);
         next({ name: 'login', query: { redirect: to.fullPath } });
-    } else if (to.meta.roles && loggedIn && !to.meta.roles.includes(userType)) {
-        console.log(`User type ${userType} does not have access to route ${to.name}. Redirecting.`);
-        if (userType === 'customer') {
-            next({ name: 'profile' });
-        } else if (userType === 'producer') {
-            next({ name: 'producerDashboard' });
+    }
+    else if (to.meta.roles && isAuthenticated && currentUser) {
+        // Usamos la lógica de dominio para verificar el rol
+        const userRole = currentUser.isProducer() ? 'producer' : 'customer';
+
+        if (!to.meta.roles.includes(userRole)) {
+            console.log(`Usuario ${userRole} no tiene acceso a ${to.name}`);
+            // Redirección inteligente basada en el rol
+            if (currentUser.isProducer()) {
+                next({ name: 'producerDashboard' });
+            } else {
+                next({ name: 'profile' });
+            }
         } else {
-            next({ name: 'welcome' });
+            next();
         }
     } else {
         next();

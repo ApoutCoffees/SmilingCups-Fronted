@@ -6,33 +6,34 @@ import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
 import Material from '@primeuix/themes/material';
 import PrimeVue from 'primevue/config';
+import router from "./router.js";
+import pinia from "./pinia.js"; // Pinia ya no es estrictamente necesario para IAM, pero lo dejamos para otros módulos
 
-
+// Importamos el nuevo store DDD
 import { useAuth } from './iam/application/iam.store.js';
-
-
-
 import {
     Button, Card, Checkbox, Column, ConfirmationService, ConfirmDialog, DataTable,
     Dialog, DialogService, Drawer, FileUpload, FloatLabel, IconField, InputIcon,
     InputNumber, InputText, Menu, Rating, Row, Select, SelectButton, Tag, Textarea,
     Toast, ToastService, Toolbar, Tooltip
 } from "primevue";
-import router from "./router.js";
-import pinia from "./pinia.js";
 
 const app = createApp(App);
 
-// Tu lógica de 'auth' (¡ahora funciona porque la importación es correcta!)
+// Inicializamos Auth (aunque router.js ya lo hizo, es seguro hacerlo aquí también)
 const auth = useAuth();
 auth.checkInitialAuthState();
+
+// Proveemos 'auth' a toda la app para que useAuth() funcione en los componentes
 app.provide('auth', auth);
+
 app
     .use(i18n)
     .use(PrimeVue, {theme: { preset: Material}, ripple: true})
     .use(ConfirmationService)
     .use(DialogService)
     .use(ToastService)
+    // ... (Tus componentes PrimeVue se mantienen igual)
     .component('pv-button',         Button)
     .component('pv-card',           Card)
     .component('pv-column',         Column)

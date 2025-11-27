@@ -1,11 +1,11 @@
 <script setup>
 import LanguageSwitcher from "./language-switcher.vue";
-import { ref, inject } from "vue"; // Import inject
+import { inject } from "vue";
 import { useI18n } from "vue-i18n";
 import FooterContent from "./footer-content.vue";
 
 const { t } = useI18n();
-const auth = inject('auth');
+const auth = inject('auth'); // Inyectamos el store de IAM (DDD)
 
 const items = [
   { label: "option.catalog", to: "/catalog" },
@@ -44,8 +44,7 @@ const items = [
         </template>
 
         <template #end>
-
-          <div v-if="auth.loggedInUserId.value" class="profile-button-container">
+          <div v-if="auth.isAuthenticated" class="profile-button-container">
             <router-link to="/profile">
               <pv-button class="profile-button p-button-secondary">
                 <i class="pi pi-user" style="margin-right: 0.5rem;"></i>
@@ -77,6 +76,7 @@ const items = [
 </template>
 
 <style scoped>
+/* Tus estilos se mantienen igual */
 .page-container {
   display: flex;
   flex-direction: column;
@@ -109,7 +109,6 @@ const items = [
 }
 
 .brand-text {
-
   font-weight: bold;
   font-size: 1.5rem;
   color: #2C1810;
@@ -120,7 +119,6 @@ const items = [
   display: flex;
   gap: 0.5rem;
 }
-
 
 .header :deep(.navigation-links .p-button) {
   color: #2c1810 !important;
@@ -137,17 +135,14 @@ const items = [
   color: #ffffff !important;
 }
 
-
 .profile-button-container, .login-button-container {
   margin-right: 1rem;
 }
-
 
 .profile-button {
   background-color: #F5EFE6 !important;
   color: #2C1810 !important;
   border: 1px solid #A08056 !important;
-
   font-weight: bold;
   padding: 0.6rem 1.2rem !important;
   border-radius: 12px;
@@ -157,7 +152,6 @@ const items = [
   background-color: #e0d8ce !important;
   border-color: #2C1810 !important;
 }
-
 
 .login-button {
   background-color: #2C1810 !important;
@@ -173,7 +167,6 @@ const items = [
   background-color: #4a2c1d !important;
   border-color: #4a2c1d !important;
 }
-
 
 .header :deep(a) {
   text-decoration: none;
