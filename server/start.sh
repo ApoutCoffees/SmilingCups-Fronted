@@ -1,1 +1,1 @@
-json-server --watch server/CoffeCupsFakeAPI.json
+json-server --watch CoffeCupsFakeAPI.json

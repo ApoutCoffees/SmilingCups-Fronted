@@ -284,6 +284,19 @@
       },
       "type": "customer",
       "id": 5
+    },
+    {
+      "fullName": "Johnny Ojanama",
+      "email": "johnnyundertale41@outlook.com",
+      "password": "123",
+      "phone": "",
+      "address": "",
+      "city": "",
+      "country": "",
+      "isVerified": false,
+      "subscriptionId": "",
+      "type": "customer",
+      "id": 6
     }
   ],
   "orders": [
