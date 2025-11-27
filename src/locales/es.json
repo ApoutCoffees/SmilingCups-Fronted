@@ -147,7 +147,8 @@
     "country_jamaica": "Jamaica",
     "min_subscription_label": "Suscripción Mínima:",
     "contact_label": "Contacto:",
-    "view_subscriptions_button": "Suscribirse con {planName}"
+    "view_subscriptions_button": "Suscribirse con {planName}",
+    "favorites_label": "Tus cafés favoritos"
   },
   "product_detail": {
     "add_to_cart": "Añadir al Carrito",
