@@ -1,60 +1,26 @@
-
-import { BaseApi } from '../../shared/infrastructure/BaseApi.js';
+import { BaseApi } from "../../shared/infrastructure/BaseApi.js";
 
 class IamApi extends BaseApi {
     constructor() {
         super();
+        this.endpoint = '/users';
     }
 
-
-
-    async loginUser(email, password) {
-        try {
-
-            const response = await this.http.get('users');
-
-
-            const user = response.data.find(u => u.email === email && u.password === password);
-
-
-            return user ? user : null;
-
-        } catch (error) {
-            console.error('Error during login:', error);
-            throw error;
-        }
+    getUsers() {
+        return this.http.get(this.endpoint);
     }
 
-    async createUser(userData) {
-        try {
-            const response = await this.http.post('users', userData);
-            return response.data;
-        } catch (error) {
-            console.error('Error creating user:', error);
-            throw error;
-        }
+    getUserById(id) {
+        return this.http.get(`${this.endpoint}?id=${id}`);
     }
 
-
-
-    async getUserById(userId) {
-        try {
-
-            const response = await this.http.get('users');
-
-
-            const user = response.data.find(u => u.id === parseInt(userId));
-
-
-            return user ? user : null;
-
-        } catch (error) {
-            console.error('Error fetching profile:', error);
-            throw error;
-        }
+    login(email, password) {
+        return this.http.get(`${this.endpoint}?email=${email}&password=${password}`);
     }
 
-    // etc.
+    createUser(userResource) {
+        return this.http.post(this.endpoint, userResource);
+    }
 }
 
 export default new IamApi();

@@ -1,46 +1,71 @@
-import { ref, readonly } from 'vue';
+import { reactive, computed } from "vue";
+import iamApi from "../infrastructure/iamApi.js";
+import { UserAssembler } from "../infrastructure/UserAssembler.js";
 
+const state = reactive({
+    currentUser: null,
+    isAuthenticated: false,
+    errors: [],
+});
 
-const loggedInUserId = ref(null);
-const loggedInUserType = ref(null);
+export const iamStore = {
+    get currentUser() { return state.currentUser },
+    get isAuthenticated() { return state.isAuthenticated },
+    get errors() { return state.errors },
 
+    setCurrentUser(user) {
+        state.currentUser = user;
+        state.isAuthenticated = !!user;
+        if (user) {
+            localStorage.setItem('user', JSON.stringify(user));
+        } else {
+            localStorage.removeItem('user');
+        }
+    },
 
-function setUser(user) {
-    if (user && user.id) {
-        loggedInUserId.value = user.id;
-        loggedInUserType.value = user.type;
-        localStorage.setItem('loggedInUserId', user.id);
-        localStorage.setItem('loggedInUserType', user.type);
-    } else {
-        loggedInUserId.value = null;
-        loggedInUserType.value = null;
-        localStorage.removeItem('loggedInUserId');
-        localStorage.removeItem('loggedInUserType');
+    async login(email, password) {
+        state.errors = [];
+        try {
+            const response = await iamApi.login(email, password);
+            const users = UserAssembler.toEntitiesFromResponse(response);
+
+            if (users.length > 0) {
+                this.setCurrentUser(users[0]);
+                return true;
+            } else {
+                state.errors.push("Credenciales inválidas");
+                return false;
+            }
+        } catch (error) {
+            state.errors.push(error.message);
+            return false;
+        }
+    },
+
+    async register(userData) {
+        state.errors = [];
+        try {
+            const response = await iamApi.createUser(userData);
+            const newUser = UserAssembler.toEntityFromResource(response.data);
+            this.setCurrentUser(newUser);
+            return true;
+        } catch (error) {
+            state.errors.push(error.message);
+            return false;
+        }
+    },
+
+    logout() {
+        this.setCurrentUser(null);
+    },
+
+    checkInitialAuthState() {
+        const stored = localStorage.getItem('user');
+        if (stored) {
+            const user = UserAssembler.toEntityFromResource(JSON.parse(stored));
+            this.setCurrentUser(user);
+        }
     }
-}
+};
 
-
-function clearUser() {
-    setUser(null);
-}
-
-
-function checkInitialAuthState() {
-    const storedId = localStorage.getItem('loggedInUserId');
-    const storedType = localStorage.getItem('loggedInUserType');
-    if (storedId && storedType) {
-        loggedInUserId.value = parseInt(storedId, 10);
-        loggedInUserType.value = storedType;
-    }
-}
-
-// Export
-export function useAuth() {
-    return {
-        loggedInUserId: readonly(loggedInUserId),
-        loggedInUserType: readonly(loggedInUserType),
-        setUser,
-        clearUser,
-        checkInitialAuthState
-    };
-}
+export const useAuth = () => iamStore;
