@@ -18,7 +18,7 @@ const orderId = route.query.orderId || 'N/A';
     <p class="thank-you">{{ t('checkout.thank_you_message') }}</p>
     <div class="actions">
       <router-link to="/catalog" class="btn btn-secondary">{{ t('checkout.back_to_shop') }}</router-link>
-      <router-link :to="{ name: 'profile', query: { tab: 'orders' } }" class="btn btn-primary">{{ t('checkout.view_order_details') }}</router-link>
+      <router-link to="/profile" class="btn btn-primary">{{ t('checkout.view_order_details') }}</router-link>
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import { useRouter } from 'vue-router';
-import { usePaymentStore } from '../../../payment/application/payment.store.js';
+import { usePaymentStore } from '../../../application/payment.store.js';
 
 const { t, tm } = useI18n();
 const router = useRouter();
@@ -19,7 +19,6 @@ const selectSubscription = (planKey) => {
   };
 
   paymentStore.addSubscriptionPlan(planDetails);
-
   router.push('/checkout/cart');
 };
 </script>

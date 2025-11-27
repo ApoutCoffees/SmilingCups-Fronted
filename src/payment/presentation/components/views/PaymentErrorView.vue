@@ -2,21 +2,12 @@
 import { ref, inject } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
-
-import { usePaymentStore } from '../../application/payment.store.js';
-import { storeToRefs } from 'pinia';
+import { usePaymentStore } from '../../../application/payment.store.js';
 
 const { t } = useI18n();
 const router = useRouter();
-
-
-const paymentStore = usePaymentStore();
-
-const { selectedPlan, cartTotal } = storeToRefs(paymentStore);
-
-
 const auth = inject('auth');
-
+const { selectedPlan, cartTotal, placeOrder } = usePaymentStore();
 
 const cardNumber = ref('');
 const cardName = ref('');
@@ -24,37 +15,30 @@ const expiryDate = ref('');
 const cvv = ref('');
 const isProcessing = ref(false);
 
-const placeOrder = async () => {
-  if (!selectedPlan.value || !auth.loggedInUserId.value) {
-    router.push('/checkout/error');
+const handleRetryOrder = async () => {
+  if (!selectedPlan.value || !auth.currentUser) {
+    router.push('/subscriptions');
     return;
   }
-
   if (!cardNumber.value || !cardName.value || !expiryDate.value || !cvv.value) {
     alert("Please fill in all payment details.");
     return;
   }
-
   isProcessing.value = true;
-  let orderId = `MOCK-${Math.floor(Math.random() * 1000)}`;
-
   try {
-    const shippingInfoPlaceholder = { address: "123 Fake St", city: "Anytown" };
+    const shippingInfoPlaceholder = { address: "Retry Address", city: "Retry City" };
     const paymentInfo = { cardNumber: '**** **** **** ' + cardNumber.value.slice(-4) };
-
-    const orderDetails = await paymentStore.placeOrder(
-        auth.loggedInUserId.value,
+    const createdOrder = await placeOrder(
+        auth.currentUser.id,
         shippingInfoPlaceholder,
         paymentInfo
     );
-
-    orderId = orderDetails.id;
-
+    router.push({ name: 'OrderConfirmed', query: { orderId: createdOrder.orderNumber } });
   } catch (error) {
-    console.error("Error placing order (Ignored for UI flow):", error);
+    console.error("Error placing order:", error);
+    alert("El pago falló nuevamente. Por favor intenta con otra tarjeta.");
   } finally {
     isProcessing.value = false;
-    router.push({ name: 'OrderConfirmed', query: { orderId: orderId } });
   }
 };
 </script>
@@ -67,11 +51,10 @@ const placeOrder = async () => {
       <span class="step visited">2 {{ t('checkout.step2') }}</span> &rarr;
       <span class="step active">3 {{ t('checkout.step3') }}</span>
     </div>
-
     <div class="checkout-content">
-      <form @submit.prevent="placeOrder" class="payment-form card">
-        <h2>{{ t('checkout.payment_information') }}</h2>
-
+      <form @submit.prevent="handleRetryOrder" class="payment-form card">
+        <h2 style="color: #D32F2F;">{{ t('checkout.problem_title') }}</h2>
+        <p>{{ t('checkout.problem_message') }}</p>
         <div class="form-group">
           <label for="cardNumber">{{ t('checkout.card_number') }}</label>
           <input type="text" id="cardNumber" v-model="cardNumber" placeholder="**** **** **** ****" required>
@@ -90,13 +73,10 @@ const placeOrder = async () => {
             <input type="text" id="cvv" v-model="cvv" placeholder="***" required>
           </div>
         </div>
-
         <button type="submit" class="btn btn-primary btn-full" :disabled="isProcessing">
-          {{ isProcessing ? 'Processing...' : t('checkout.place_order') }}
+          {{ isProcessing ? 'Processing...' : t('checkout.try_again') }}
         </button>
       </form>
-
-
       <div class="order-summary card" v-if="selectedPlan">
         <h2>{{ t('checkout.order_summary') }}</h2>
         <div class="summary-item plan-item">
@@ -111,18 +91,12 @@ const placeOrder = async () => {
           <span>{{ t('checkout.total') }}</span>
           <span>${{ cartTotal.toFixed(2) }}</span>
         </div>
-        <router-link to="/checkout/shipping" class="edit-link">{{ t('checkout.edit_address') }}</router-link> </div>
-      <div v-else class="order-summary card">
-        <h2>{{ t('checkout.order_summary') }}</h2>
-        <p>{{ t('checkout.empty_cart') }}</p>
-        <router-link to="/subscriptions" class="btn btn-secondary">{{ t('checkout.go_to_subscriptions') }}</router-link>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-
 .checkout-container { max-width: 1000px; margin: 2rem auto; padding: 2rem; background-color: #FFFBEB; border-radius: 15px; border: 2px solid #EFE1C3;}
 .checkout-container h1 { font-family: 'Amaranth', sans-serif; text-align: center; color: #2C1810; margin-bottom: 1rem; }
 .checkout-steps { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; font-family: 'Amaranth', sans-serif; color: #a08056; }

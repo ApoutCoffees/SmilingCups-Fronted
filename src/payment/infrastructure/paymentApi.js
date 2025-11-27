@@ -1,4 +1,3 @@
-
 import { BaseApi } from '../../shared/infrastructure/BaseApi.js';
 
 class PaymentApi extends BaseApi {
@@ -6,25 +5,12 @@ class PaymentApi extends BaseApi {
         super();
     }
 
-    async getOrders(userId) {
-        try {
-            const response = await this.http.get(`orders?userId=${userId}`); // Usa this.http
-            return response.data;
-        } catch (error) {
-            console.error('Error fetching orders:', error);
-            throw error;
-        }
+    getOrders(userId) {
+        return this.http.get(`/orders?userId=${userId}`);
     }
 
-    async placeSubscriptionOrder(userId, planId, shippingInfo) {
-        try {
-            const orderData = { /* ... */ };
-            const response = await this.http.post('subscriptionOrders', orderData); // Usa this.http
-            return response.data;
-        } catch (error) {
-            console.error('Error placing subscription order:', error);
-            throw error;
-        }
+    placeSubscriptionOrder(orderResource) {
+        return this.http.post('/orders', orderResource);
     }
 }
 

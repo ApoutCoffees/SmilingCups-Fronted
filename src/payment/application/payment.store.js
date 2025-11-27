@@ -1,80 +1,86 @@
-import { defineStore } from 'pinia';
-import { ref, computed, readonly } from 'vue';
+import { reactive, computed } from 'vue';
 import PaymentApi from '../infrastructure/PaymentApi.js';
+import { OrderAssembler } from '../infrastructure/OrderAssembler.js';
 
-export const usePaymentStore = defineStore('payment', () => {
 
-    // --- Lógica del Carrito (Existente) ---
-    const selectedPlan = ref(null);
+const state = reactive({
+    selectedPlan: null,
+
+    orders: [],
+    loadingOrders: false,
+    ordersError: null
+});
+
+export const usePaymentStore = () => {
+    const selectedPlan = computed(() => state.selectedPlan);
+    const orders = computed(() => state.orders);
+    const loadingOrders = computed(() => state.loadingOrders);
+    const ordersError = computed(() => state.ordersError);
 
     const cartTotal = computed(() => {
-        return selectedPlan.value ? selectedPlan.value.price : 0;
-    });
-
-    const itemCount = computed(() => {
-        return selectedPlan.value ? 1 : 0;
+        return state.selectedPlan ? state.selectedPlan.price : 0;
     });
 
     const addSubscriptionPlan = (planDetails) => {
-        selectedPlan.value = planDetails;
+        state.selectedPlan = planDetails;
     };
 
     const clearCart = () => {
-        selectedPlan.value = null;
+        state.selectedPlan = null;
     };
 
-    async function placeOrder(userId, shippingInfo, paymentInfo) {
-        if (!selectedPlan.value || !userId) {
+    const fetchOrders = async (userId) => {
+        state.loadingOrders = true;
+        state.ordersError = null;
+        try {
+            const response = await PaymentApi.getOrders(userId);
+            state.orders = OrderAssembler.toEntitiesFromResponse(response);
+        } catch (e) {
+            console.error("Error fetching orders:", e);
+            state.ordersError = "Failed to load orders.";
+        } finally {
+            state.loadingOrders = false;
+        }
+    };
+
+    const placeOrder = async (userId, shippingInfo, paymentInfo) => {
+        if (!state.selectedPlan || !userId) {
             throw new Error('User or Plan not selected.');
         }
+
+        const newOrderResource = {
+            userId: Number(userId),
+            planId: state.selectedPlan.id,
+            total: state.selectedPlan.price,
+            status: 'Completed',
+            type: 'subscription',
+            date: new Date().toISOString().split('T')[0],
+            orderNumber: `ORD-${Math.floor(Math.random() * 10000)}`,
+            shippingInfo,
+            paymentInfo: { cardLast4: paymentInfo.cardNumber.slice(-4) }
+        };
+
         try {
-            const orderDetails = await PaymentApi.placeSubscriptionOrder(
-                userId,
-                selectedPlan.value.id,
-                shippingInfo,
-                paymentInfo
-            );
+            const response = await PaymentApi.placeSubscriptionOrder(newOrderResource);
+            const createdOrder = OrderAssembler.toEntityFromResource(response.data);
+
             clearCart();
-            return orderDetails;
+            return createdOrder;
         } catch (error) {
             console.error("Error in store placeOrder:", error);
             throw error;
         }
-    }
-
-
-    const orders = ref([]);
-    const loadingOrders = ref(true);
-    const ordersError = ref(null);
-
-    async function fetchOrders(userId) {
-        loadingOrders.value = true;
-        ordersError.value = null;
-        try {
-
-            orders.value = await PaymentApi.getOrders(userId);
-        } catch(e) {
-            console.error("Error fetching orders:", e);
-            ordersError.value = "Failed to load orders.";
-        } finally {
-            loadingOrders.value = false;
-        }
-    }
-
+    };
 
     return {
-
-        selectedPlan: readonly(selectedPlan),
+        selectedPlan,
         cartTotal,
-        itemCount,
-        addSubscriptionPlan,
-        clearCart,
-        placeOrder,
-
-
         orders,
         loadingOrders,
         ordersError,
-        fetchOrders
+        addSubscriptionPlan,
+        clearCart,
+        fetchOrders,
+        placeOrder
     };
-});
+};
