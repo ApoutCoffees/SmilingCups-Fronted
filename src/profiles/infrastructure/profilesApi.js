@@ -5,49 +5,24 @@ class ProfilesApi extends BaseApi {
         super();
     }
 
-    async getUserById(userId) {
-        try {
-            const response = await this.http.get('');
-            const user = response.data.users.find(u => u.id === parseInt(userId));
-            return user ? user : null;
-        } catch (error) {
-            console.error('Error fetching profile by ID:', error);
-            throw error;
-        }
+    getFavorites(userId) {
+        return this.http.get(`/favorites?userId=${userId}&_expand=coffee`);
     }
 
-    async updateProfile(userId, updatedProfile) {
-        try {
-            const response = await this.http.put(`users/${userId}`, updatedProfile);
-            return response.data;
-        } catch (error) {
-            console.error('Error updating profile:', error);
-            throw error;
-        }
+    addFavorite(favoriteData) {
+        return this.http.post('/favorites', favoriteData);
     }
 
-    async getFavorites(userId) {
-        try {
-            const response = await this.http.get('');
-            const allData = response.data;
-            const userFavorites = allData.favorites.filter(f => f.userId === parseInt(userId));
-            return userFavorites;
-        } catch (error) {
-            console.error('Error fetching favorites:', error);
-            throw error;
-        }
+    removeFavorite(id) {
+        return this.http.delete(`/favorites/${id}`);
     }
 
-    async getProducerStats(userId) {
-        try {
-            const response = await this.http.get('');
-            const allData = response.data;
-            const userStats = allData.producerStats.find(s => s.userId === parseInt(userId));
-            return userStats ? userStats : null;
-        } catch (error) {
-            console.error('Error fetching producer stats:', error);
-            throw error;
-        }
+    getProducerStats(userId) {
+        return this.http.get(`/producerStats?userId=${userId}`);
+    }
+
+    getMonthlySales(producerStatId) {
+        return this.http.get(`/monthlySales?producerStatId=${producerStatId}`);
     }
 }
 
