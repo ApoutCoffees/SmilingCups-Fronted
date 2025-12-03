@@ -1,5 +1,5 @@
 import { reactive, computed } from 'vue';
-import ProductApi from '../infrastructure/ProductApi.js';
+import ProductApi from '../infrastructure/productApi.js';
 import { CoffeeAssembler } from '../infrastructure/CoffeeAssembler.js';
 
 const state = reactive({
