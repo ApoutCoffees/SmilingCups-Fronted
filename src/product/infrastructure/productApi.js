@@ -1,17 +1,19 @@
-import { BaseApi } from '../../shared/infrastructure/BaseApi.js';
+import { BaseApi } from '@/shared/infrastructure/BaseApi.js';
 
 class ProductApi extends BaseApi {
     constructor() {
         super();
-        this.endpoint = '/cafes';
     }
 
     async getCoffees() {
-        return await this.http.get(this.endpoint);
+        // Swagger: GET /api/v1/coffees
+        const response = await this.http.get('coffees');
+        return response;
     }
 
     async getCoffeeById(id) {
-        return await this.http.get(`${this.endpoint}/${id}`);
+        const response = await this.http.get(`coffees/${id}`);
+        return response;
     }
 }
 

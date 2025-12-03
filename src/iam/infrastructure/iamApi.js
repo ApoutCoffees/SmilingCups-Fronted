@@ -1,26 +1,39 @@
-import { BaseApi } from "../../shared/infrastructure/BaseApi.js";
+import { BaseApi } from '@/shared/infrastructure/BaseApi.js';
 
 class IamApi extends BaseApi {
     constructor() {
         super();
-        this.endpoint = '/users';
     }
 
-    getUsers() {
-        return this.http.get(this.endpoint);
+    /**
+     * Login POST to .NET Backend
+     * @param {string} email
+     * @param {string} password
+     */
+    async login(email, password) {
+        // Swagger: POST /api/v1/authentication/sign-in
+        const response = await this.http.post('authentication/sign-in', {
+            email: email,
+            password: password
+        });
+        return response.data;
     }
 
-    getUserById(id) {
-        return this.http.get(`${this.endpoint}?id=${id}`);
+    /**
+     * Register POST to .NET Backend
+     * @param {Object} userData
+     */
+    async createUser(userData) {
+
+        const response = await this.http.post('authentication/sign-up', userData);
+        return response.data;
     }
 
-    login(email, password) {
-        return this.http.get(`${this.endpoint}?email=${email}&password=${password}`);
-    }
-
-    createUser(userResource) {
-        return this.http.post(this.endpoint, userResource);
+    async getUserById(userId) {
+        const response = await this.http.get(`users/${userId}`);
+        return response.data;
     }
 }
 
-export default new IamApi();
+
+export const iamApi = new IamApi();

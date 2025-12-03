@@ -1,38 +1,30 @@
 import axios from "axios";
 
-const platformApi = import.meta.env.VITE_LEARNING_PLATFORM_API_URL || "http://localhost:3000";
+// Apunta a tu backend .NET local
+const platformApi = import.meta.env.VITE_LEARNING_PLATFORM_API_URL || "http://localhost:5252/api/v1/";
 
-/**
- * Base API class to handle HTTP requests using Axios
- * @class
- * @example
- * const api = new BaseApi();
- * api.http.get('/endpoint').then(response => console.log(response.data));
- */
 export class BaseApi {
-    /**
-     * @private
-     * Axios HTTP client instance
-     * @type {import('axios').AxiosInstance}
-     */
     #http;
 
-    /**
-     * Initializes the Axios HTTP client with the base URL from environment variables
-     */
     constructor() {
-        console.log("URL ACTUAL DE LA API:", platformApi);
         this.#http = axios.create({
-            baseURL: platformApi
+            baseURL: platformApi,
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        });
+
+        this.#http.interceptors.request.use((config) => {
+            const token = localStorage.getItem('authToken');
+            if (token) {
+                config.headers.Authorization = `Bearer ${token}`;
+            }
+            return config;
         });
     }
 
-    /**
-     * Gets the Axios HTTP client instance
-     * @returns {axios.AxiosInstance}
-     */
     get http() {
         return this.#http;
     }
-
 }

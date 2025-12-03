@@ -1,5 +1,5 @@
-import { reactive, computed } from "vue";
-import iamApi from "../infrastructure/iamApi.js";
+import { reactive } from "vue";
+import { iamApi } from "../infrastructure/iamApi.js";
 import { UserAssembler } from "../infrastructure/UserAssembler.js";
 
 const state = reactive({
@@ -20,24 +20,38 @@ export const iamStore = {
             localStorage.setItem('user', JSON.stringify(user));
         } else {
             localStorage.removeItem('user');
+            localStorage.removeItem('authToken');
         }
     },
 
+    /**
+     * Authenticates the user and retrieves profile data.
+     * @param {string} email
+     * @param {string} password
+     */
     async login(email, password) {
         state.errors = [];
         try {
-            const response = await iamApi.login(email, password);
-            const users = UserAssembler.toEntitiesFromResponse(response);
+            // Paso 1: Obtener Token
+            const loginResponse = await iamApi.login(email, password);
 
-            if (users.length > 0) {
-                this.setCurrentUser(users[0]);
+            if (loginResponse && loginResponse.token) {
+                localStorage.setItem('authToken', loginResponse.token);
+
+                // Paso 2: Obtener datos completos del usuario usando el token
+                const userProfile = await iamApi.getUserById(loginResponse.id);
+                const userEntity = UserAssembler.toEntityFromResource(userProfile);
+
+                this.setCurrentUser(userEntity);
                 return true;
             } else {
-                state.errors.push("Credenciales inválidas");
+                state.errors.push("Login failed: No token received");
                 return false;
             }
         } catch (error) {
-            state.errors.push(error.message);
+            console.error(error);
+            const msg = error.response?.data?.message || "Invalid credentials";
+            state.errors.push(msg);
             return false;
         }
     },
@@ -45,12 +59,11 @@ export const iamStore = {
     async register(userData) {
         state.errors = [];
         try {
-            const response = await iamApi.createUser(userData);
-            const newUser = UserAssembler.toEntityFromResource(response.data);
-            this.setCurrentUser(newUser);
+            await iamApi.createUser(userData);
             return true;
         } catch (error) {
-            state.errors.push(error.message);
+            const msg = error.response?.data?.message || error.message;
+            state.errors.push(msg);
             return false;
         }
     },
@@ -60,10 +73,19 @@ export const iamStore = {
     },
 
     checkInitialAuthState() {
-        const stored = localStorage.getItem('user');
-        if (stored) {
-            const user = UserAssembler.toEntityFromResource(JSON.parse(stored));
-            this.setCurrentUser(user);
+        const storedUser = localStorage.getItem('user');
+        const token = localStorage.getItem('authToken');
+
+        if (storedUser && token) {
+            try {
+                const user = JSON.parse(storedUser);
+                state.currentUser = UserAssembler.toEntityFromResource(user);
+                state.isAuthenticated = true;
+            } catch (e) {
+                this.logout();
+            }
+        } else {
+            this.logout();
         }
     }
 };
