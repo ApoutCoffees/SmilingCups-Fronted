@@ -81,16 +81,54 @@
       "subtitle": "Choose the perfect plan for your passion for coffee",
       "most_popular": "Most Popular",
       "subscribe_now": "Subscribe now",
-      "basic": { "title": "Basic", "price": "14.99$/ MONTH", "features": [ "250g of premium coffee per month", "Selection of 2-3 rotating sources", "Access to the community", "Free shipping" ] },
-      "premium": { "title": "Premium", "price": "39.99$/ MONTH", "features": [ "500g of premium coffee per month", "Selection of 4-5 rotating sources", "Three-monthly surprise box", "Discounts on additional purchases", "Priority access to limited lots", "Free shipping" ] },
-      "vip": { "title": "VIP", "price": "59.99$/ MONTH", "features": [ "1300g of premium coffee per month", "Exclusive micro-lots", "Monthly surprise box", "Video call with producers", "20% discount on all purchases", "VIP access to events", "Free international express shipping" ] }
+      "basic": {
+        "title": "Basic",
+        "price": "14.99$/ MONTH",
+        "features": [
+          "250g of premium coffee per month",
+          "Selection of 2-3 rotating sources",
+          "Access to the community",
+          "Free shipping"
+        ]
+      },
+      "premium": {
+        "title": "Premium",
+        "price": "39.99$/ MONTH",
+        "features": [
+          "500g of premium coffee per month",
+          "Selection of 4-5 rotating sources",
+          "Three-monthly surprise box",
+          "Discounts on additional purchases",
+          "Priority access to limited lots",
+          "Free shipping"
+        ]
+      },
+      "vip": {
+        "title": "VIP",
+        "price": "59.99$/ MONTH",
+        "features": [
+          "1300g of premium coffee per month",
+          "Exclusive micro-lots",
+          "Monthly surprise box",
+          "Video call with producers",
+          "20% discount on all purchases",
+          "VIP access to events",
+          "Free international express shipping"
+        ]
+      }
     },
     "testimonials": {
       "title": "What our customers say",
       "subtitle": "Thousands of coffee lovers enjoy SmilingCups every day.",
-      "customer1_quote": "\"The most incredible coffee I've ever tasted. Every month is a new adventure in flavors.\"", "customer1_name": "Maria Gonzalez", "customer1_level": "Premium Customer",
-      "customer2_quote": "\"Knowing that I am directly supporting producers makes every cup special.\"", "customer2_name": "Carlos Rodriguez", "customer2_level": "Premium Customer",
-      "customer3_quote": "\"The quality is exceptional and the customer service is unbeatable. Highly recommended.\"", "customer3_name": "Ana Martínez", "customer3_level": "Premium Customer"
+      "customer1_quote": "\"The most incredible coffee I've ever tasted. Every month is a new adventure in flavors.\"",
+      "customer1_name": "Maria Gonzalez",
+      "customer1_level": "Premium Customer",
+      "customer2_quote": "\"Knowing that I am directly supporting producers makes every cup special.\"",
+      "customer2_name": "Carlos Rodriguez",
+      "customer2_level": "Premium Customer",
+      "customer3_quote": "\"The quality is exceptional and the customer service is unbeatable. Highly recommended.\"",
+      "customer3_name": "Ana Martínez",
+      "customer3_level": "Premium Customer"
     },
     "cta": {
       "title": "Ready to begin your coffee adventure?",
@@ -270,6 +308,14 @@
   },
   "producer_dashboard": {
     "title": "Producer Dashboard",
+    "welcome": "Welcome back! Let's calculate your next harvest.",
+    "input_title": "Harvest Data Calculator",
+    "harvest_label": "Est. Harvest (kg)",
+    "price_label": "Price per Kg ($)",
+    "cost_label": "Operational Costs ($)",
+    "revenue": "Gross Revenue",
+    "net_income": "Net Income",
+    "margin": "Profit Margin",
     "total_sales": "Total Sales",
     "units_sold": "Units Sold",
     "top_product": "Top Selling Product",
@@ -277,6 +323,37 @@
     "no_stats": "No statistics available for this producer.",
     "error_loading": "Could not load statistics.",
     "access_denied": "Access denied or user not logged in."
+  },
+  "rewards": {
+    "title": "Loyalty Rewards",
+    "subtitle": "Get a free coffee every 6 months!",
+    "current_cycle": "Current Cycle",
+    "claim_button": "Claim Coffee",
+    "history_title": "Your Rewards"
+  },
+  "payments": {
+    "title": "Payment Methods",
+    "subtitle": "Select your primary payment method.",
+    "add_new": "Add New Method",
+    "default_badge": "Default"
+  },
+  "configuration": {
+    "title": "Settings",
+    "subtitle": "Manage your app preferences.",
+    "language": "Language",
+    "notifications": "Notifications",
+    "public_profile": "Public Profile",
+    "danger_zone": "Danger Zone",
+    "delete_account": "Delete Account"
+  },
+  "tutorial": {
+    "create_title": "Create New Tutorial",
+    "share_knowledge": "Share your coffee knowledge.",
+    "title_label": "Tutorial Title",
+    "category_label": "Category",
+    "video_url": "Video URL",
+    "description": "Description",
+    "submit": "Publish Tutorial"
   },
   "about": {
     "title": "About SmilingCups",

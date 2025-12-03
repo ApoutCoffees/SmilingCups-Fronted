@@ -1,121 +1,163 @@
 <script setup>
-import { ref, onMounted, inject } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
-import profileApi from '../../infrastructure/profilesApi.js';
+import profilesApi from '../../infrastructure/profilesApi.js';
 
 const { t } = useI18n();
-const auth = inject('auth');
-const stats = ref(null);
-const loading = ref(true);
-const error = ref(null);
 
+// Estado Reactivo
+const loading = ref(true);
+const harvestAmount = ref(0);
+const pricePerKg = ref(0);
+const operationalCosts = ref(0);
+
+// ID Temporal
+const PRODUCER_ID = 1;
+
+// Cargar datos reales al iniciar
 onMounted(async () => {
-  const userId = auth.loggedInUserId.value;
-  if (!userId || auth.loggedInUserType.value !== 'producer') {
-    error.value = "Access denied or user not logged in.";
-    loading.value = false;
-    return;
-  }
   try {
-    stats.value = await profileApi.getProducerStats(userId);
+    const stats = await profilesApi.getProducerStats(PRODUCER_ID);
+    if (stats) {
+      // Si la API trae datos, los usamos como base
+      harvestAmount.value = stats.totalHarvest || 1000;
+      pricePerKg.value = stats.averagePrice || 10;
+      operationalCosts.value = stats.costs || 2000;
+    } else {
+      // Valores por defecto si es un productor nuevo
+      harvestAmount.value = 1000;
+      pricePerKg.value = 12.5;
+      operationalCosts.value = 3500;
+    }
   } catch (e) {
-    console.error("Error cargando stats:", e);
-    error.value = t('producer_dashboard.error_loading');
+    console.error("Error loading producer stats", e);
   } finally {
     loading.value = false;
   }
 });
+
+// Cálculos automáticos (Computed)
+const grossRevenue = computed(() => harvestAmount.value * pricePerKg.value);
+const netIncome = computed(() => grossRevenue.value - operationalCosts.value);
+const profitMargin = computed(() => {
+  if (grossRevenue.value === 0) return 0;
+  return ((netIncome.value / grossRevenue.value) * 100).toFixed(1);
+});
+
+const formatMoney = (val) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(val);
 </script>
 
 <template>
-  <div class="dashboard-container">
-    <h1>{{ t('producer_dashboard.title') }}</h1>
+  <div class="producer-dashboard">
+    <div class="header">
+      <h1>Producer Dashboard</h1>
+      <p>Analyze your production financial health</p>
+    </div>
 
-    <div v-if="loading" class="state-message">Cargando estadísticas...</div>
-    <div v-else-if="error" class="error state-message">{{ error }}</div>
-    <div v-else-if="stats" class="stats-grid">
-      <div class="stat-card">
-        <h3>{{ t('producer_dashboard.total_sales') }}</h3>
-        <p>${{ stats.totalSales.toFixed(2) }}</p>
+    <div v-if="loading" class="loading">Loading Data...</div>
+
+    <div v-else class="grid-container">
+
+      <div class="card input-panel">
+        <h2><i class="pi pi-cog"></i> Production Data</h2>
+        <p class="subtitle">Modify values to simulate scenarios</p>
+
+        <div class="form-group">
+          <label>Harvest Volume (kg)</label>
+          <input type="number" v-model="harvestAmount" class="sc-input">
+        </div>
+
+        <div class="form-group">
+          <label>Price per Kg ($)</label>
+          <input type="number" v-model="pricePerKg" step="0.5" class="sc-input">
+        </div>
+
+        <div class="form-group">
+          <label>Operational Costs ($)</label>
+          <input type="number" v-model="operationalCosts" class="sc-input">
+        </div>
       </div>
-      <div class="stat-card">
-        <h3>{{ t('producer_dashboard.units_sold') }}</h3>
-        <p>{{ stats.unitsSold }}</p>
-      </div>
-      <div class="stat-card large">
-        <h3>{{ t('producer_dashboard.top_product') }}</h3>
-        <p>{{ stats.topProduct.nombre }} ({{ stats.topProduct.unitsSold }} unidades)</p>
-      </div>
-      <div class="stat-card large">
-        <h3>{{ t('producer_dashboard.monthly_sales') }}</h3>
-        <ul>
-          <li v-for="month in stats.monthlySales" :key="month.month">
-            {{ month.month }}: ${{ month.sales.toFixed(2) }}
-          </li>
-        </ul>
+
+      <div class="stats-panel">
+
+        <div class="stat-card">
+          <div class="icon-circle revenue"><i class="pi pi-dollar"></i></div>
+          <div class="info">
+            <h3>Gross Revenue</h3>
+            <span class="value">{{ formatMoney(grossRevenue) }}</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="icon-circle" :class="netIncome >= 0 ? 'profit' : 'loss'">
+            <i class="pi" :class="netIncome >= 0 ? 'pi-chart-line' : 'pi-arrow-down'"></i>
+          </div>
+          <div class="info">
+            <h3>Net Income</h3>
+            <span class="value" :class="netIncome >= 0 ? 'text-green' : 'text-red'">
+              {{ formatMoney(netIncome) }}
+            </span>
+          </div>
+        </div>
+
+        <div class="stat-card full-width">
+          <div class="flex-row">
+            <h3>Profit Margin</h3>
+            <span class="percent-text">{{ profitMargin }}%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill"
+                 :style="{ width: Math.max(0, Math.min(100, profitMargin)) + '%' }"
+                 :class="profitMargin > 20 ? 'high' : 'low'">
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div v-else class="state-message">{{ t('producer_dashboard.no_stats') }}</div>
   </div>
 </template>
 
 <style scoped>
-.dashboard-container {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 2rem;
-}
-.dashboard-container h1 {
-  font-family: 'Amaranth', sans-serif;
-  font-size: 2.5rem;
-  color: #2C1810;
-  margin-bottom: 2rem;
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-.stat-card {
-  background-color: #FDFCF8;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  border: 1px solid #EFE1C3;
-}
-.stat-card h3 {
-  font-family: 'Amaranth', sans-serif;
-  font-size: 1.2rem;
-  color: #5c4b44;
-  margin-top: 0;
-  margin-bottom: 0.8rem;
-}
-.stat-card p, .stat-card li {
-  font-family: 'Amaranth', sans-serif;
-  font-size: 1.5rem;
-  color: #2C1810;
-  font-weight: bold;
-  margin: 0;
-}
-.stat-card ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 0.5rem;
-}
-.stat-card li {
-  font-size: 1rem;
-  font-weight: normal;
-  margin-bottom: 0.3rem;
-}
-.stat-card.large {
-  grid-column: span 2;
-}
-.error { color: #D32F2F;}
-.state-message { font-family: 'Amaranth', sans-serif; font-size: 1.5rem; padding: 3rem; color: #5c4b44; text-align: center; }
+.producer-dashboard { max-width: 1100px; margin: 3rem auto; padding: 0 1.5rem; font-family: 'Amaranth', sans-serif; }
+.header { margin-bottom: 2rem; }
+.header h1 { color: #2C1810; margin: 0; font-size: 2.2rem; }
+.header p { color: #5c4b44; }
 
-@media (max-width: 600px) {
-  .stat-card.large {
-    grid-column: span 1;
-  }
+.grid-container { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
+.card { background: #FDFCF8; padding: 2rem; border-radius: 12px; border: 1px solid #EFE1C3; }
+
+/* Inputs */
+.subtitle { font-size: 0.9rem; color: #A08056; margin-bottom: 1.5rem; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label { display: block; font-weight: bold; color: #5c4b44; margin-bottom: 0.5rem; }
+.sc-input { width: 100%; padding: 0.8rem; border: 2px solid #EFE1C3; border-radius: 8px; font-family: inherit; font-size: 1.1rem; box-sizing: border-box; }
+.sc-input:focus { border-color: #CDAC77; outline: none; }
+
+/* Stats */
+.stats-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-content: start; }
+.stat-card { background: #fff; padding: 1.5rem; border-radius: 12px; border: 1px solid #EFE1C3; display: flex; align-items: center; gap: 1rem; }
+.full-width { grid-column: span 2; display: block; }
+
+.icon-circle { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+.revenue { background: #FFF2D0; color: #A08056; }
+.profit { background: #d4edda; color: #155724; }
+.loss { background: #f8d7da; color: #721c24; }
+
+.info h3 { margin: 0; font-size: 0.9rem; color: #999; text-transform: uppercase; }
+.value { font-size: 1.5rem; font-weight: bold; color: #2C1810; }
+.text-green { color: #2E7D32; }
+.text-red { color: #C62828; }
+
+/* Progress */
+.flex-row { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-weight: bold; color: #2C1810; }
+.progress-track { height: 12px; background: #EFE1C3; border-radius: 6px; overflow: hidden; }
+.progress-fill { height: 100%; transition: width 0.5s ease; }
+.high { background: #4CAF50; }
+.low { background: #FF9800; }
+
+@media (max-width: 800px) {
+  .grid-container, .stats-panel { grid-template-columns: 1fr; }
+  .full-width { grid-column: span 1; }
 }
 </style>

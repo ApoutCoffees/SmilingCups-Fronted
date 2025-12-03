@@ -81,16 +81,54 @@
       "subtitle": "Elige el plan perfecto para tu pasión por el café",
       "most_popular": "Más Popular",
       "subscribe_now": "Suscríbete ahora",
-      "basic": { "title": "Básico", "price": "14.99$ / MES", "features": [ "250g de café premium por mes", "Selección de 2-3 orígenes rotativos", "Acceso a la comunidad", "Envío gratis" ] },
-      "premium": { "title": "Premium", "price": "39.99$ / MES", "features": [ "500g de café premium por mes", "Selección de 4-5 orígenes rotativos", "Caja sorpresa trimestral", "Descuentos en compras adicionales", "Acceso prioritario a lotes limitados", "Envío gratis" ] },
-      "vip": { "title": "VIP", "price": "59.99$ / MES", "features": [ "1300g de café premium por mes", "Micro-lotes exclusivos", "Caja sorpresa mensual", "Videollamada con productores", "20% de descuento en todas las compras", "Acceso VIP a eventos", "Envío express internacional gratis" ] }
+      "basic": {
+        "title": "Básico",
+        "price": "14.99$ / MES",
+        "features": [
+          "250g de café premium por mes",
+          "Selección de 2-3 orígenes rotativos",
+          "Acceso a la comunidad",
+          "Envío gratis"
+        ]
+      },
+      "premium": {
+        "title": "Premium",
+        "price": "39.99$ / MES",
+        "features": [
+          "500g de café premium por mes",
+          "Selección de 4-5 orígenes rotativos",
+          "Caja sorpresa trimestral",
+          "Descuentos en compras adicionales",
+          "Acceso prioritario a lotes limitados",
+          "Envío gratis"
+        ]
+      },
+      "vip": {
+        "title": "VIP",
+        "price": "59.99$ / MES",
+        "features": [
+          "1300g de café premium por mes",
+          "Micro-lotes exclusivos",
+          "Caja sorpresa mensual",
+          "Videollamada con productores",
+          "20% de descuento en todas las compras",
+          "Acceso VIP a eventos",
+          "Envío express internacional gratis"
+        ]
+      }
     },
     "testimonials": {
       "title": "Lo que dicen nuestros clientes",
       "subtitle": "Miles de amantes del café disfrutan de SmilingCups todos los días.",
-      "customer1_quote": "\"El café más increíble que he probado. Cada mes es una nueva aventura de sabores.\"", "customer1_name": "Maria Gonzalez", "customer1_level": "Cliente Premium",
-      "customer2_quote": "\"Saber que estoy apoyando directamente a los productores hace que cada taza sea especial.\"", "customer2_name": "Carlos Rodriguez", "customer2_level": "Cliente Premium",
-      "customer3_quote": "\"La calidad es excepcional y el servicio al cliente es inmejorable. Totalmente recomendado.\"", "customer3_name": "Ana Martínez", "customer3_level": "Cliente Premium"
+      "customer1_quote": "\"El café más increíble que he probado. Cada mes es una nueva aventura de sabores.\"",
+      "customer1_name": "Maria Gonzalez",
+      "customer1_level": "Cliente Premium",
+      "customer2_quote": "\"Saber que estoy apoyando directamente a los productores hace que cada taza sea especial.\"",
+      "customer2_name": "Carlos Rodriguez",
+      "customer2_level": "Cliente Premium",
+      "customer3_quote": "\"La calidad es excepcional y el servicio al cliente es inmejorable. Totalmente recomendado.\"",
+      "customer3_name": "Ana Martínez",
+      "customer3_level": "Cliente Premium"
     },
     "cta": {
       "title": "¿Listo para comenzar tu aventura cafetera?",
@@ -270,6 +308,14 @@
   },
   "producer_dashboard": {
     "title": "Panel del Productor",
+    "welcome": "¡Bienvenido de nuevo! Calculemos tu próxima cosecha.",
+    "input_title": "Calculadora de Cosecha",
+    "harvest_label": "Cosecha Est. (kg)",
+    "price_label": "Precio por Kg ($)",
+    "cost_label": "Costos Operativos ($)",
+    "revenue": "Ingresos Brutos",
+    "net_income": "Ingreso Neto",
+    "margin": "Margen de Ganancia",
     "total_sales": "Ventas Totales",
     "units_sold": "Unidades Vendidas",
     "top_product": "Producto Más Vendido",
@@ -277,6 +323,37 @@
     "no_stats": "No hay estadísticas disponibles para este productor.",
     "error_loading": "No se pudieron cargar las estadísticas.",
     "access_denied": "Acceso denegado o usuario no autenticado."
+  },
+  "rewards": {
+    "title": "Recompensas de Lealtad",
+    "subtitle": "¡Obtén un café gratis cada 6 meses!",
+    "current_cycle": "Ciclo Actual",
+    "claim_button": "Reclamar Café",
+    "history_title": "Tus Recompensas"
+  },
+  "payments": {
+    "title": "Métodos de Pago",
+    "subtitle": "Selecciona tu método de pago principal.",
+    "add_new": "Agregar Nuevo Método",
+    "default_badge": "Predeterminado"
+  },
+  "configuration": {
+    "title": "Configuración",
+    "subtitle": "Gestiona tus preferencias de la app.",
+    "language": "Idioma",
+    "notifications": "Notificaciones",
+    "public_profile": "Perfil Público",
+    "danger_zone": "Zona de Peligro",
+    "delete_account": "Eliminar Cuenta"
+  },
+  "tutorial": {
+    "create_title": "Crear Nuevo Tutorial",
+    "share_knowledge": "Comparte tu conocimiento sobre el café.",
+    "title_label": "Título del Tutorial",
+    "category_label": "Categoría",
+    "video_url": "URL del Video",
+    "description": "Descripción",
+    "submit": "Publicar Tutorial"
   },
   "about": {
     "title": "Sobre SmilingCups",
