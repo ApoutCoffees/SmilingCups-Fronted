@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Apunta a tu backend .NET local
-const platformApi = import.meta.env.VITE_LEARNING_PLATFORM_API_URL || "http://localhost:5252/api/v1/";
+const platformApi = import.meta.env.VITE_LEARNING_PLATFORM_API_URL || "https://appoutcoffe.azurewebsites.net/api/v1";
 
 export class BaseApi {
     #http;

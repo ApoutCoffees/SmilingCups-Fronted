@@ -159,6 +159,10 @@ const userSubscription = new Subscription({
   display: flex; align-items: center; gap: 0.5rem;
   transition: all 0.2s;
 }
+.subscription-item {
+  color: #CDAC77;
+
+}
 .favorite-tag:hover { background-color: #FFEBC2; transform: translateY(-2px); }
 .favorite-tag i { color: #CDAC77; }
 
